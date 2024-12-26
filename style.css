@@ -817,3 +817,131 @@ html {
     white-space: nowrap; /* Ensures the text stays in a single line */
 }
 
+/* Global Styles for Mobile View */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .nav-links a {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .cart-icon {
+        margin-left: auto;
+    }
+
+    .hero {
+        height: auto;
+        padding: 20px;
+    }
+
+    .brand-name {
+        font-size: 32px;
+    }
+
+    .brand-logo {
+        font-size: 28px;
+    }
+
+    .about-short {
+        font-size: 14px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    /* Footer Adjustments */
+    .footer {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .footer-section ul {
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    nav {
+        padding: 10px 15px;
+    }
+
+    .nav-right {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .brand-name {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .product-card {
+        flex-direction: column;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .footer {
+        padding: 10px;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+/* Adjust Navigation Menu for Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+
+    nav .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+    }
+}
