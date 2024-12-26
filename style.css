@@ -318,13 +318,22 @@ nav {
     color: #000;
 }
 
+/* Default Mobile Styles */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
 }
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr); /* Four columns for desktop */
+        gap: 30px;
+    }
+}
+
 
 .product-card {
     position: relative;
@@ -775,6 +784,22 @@ html {
     font-family: 'Poppins', sans-serif; /* Updated font style */
 }
 
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 50px;
+    }
+
+    .brand-logo {
+        font-size: 70px;
+    }
+}
+
 .about-short {
     margin-bottom: 20px;
     font-size: 15px;
@@ -817,3 +842,211 @@ html {
     white-space: nowrap; /* Ensures the text stays in a single line */
 }
 
+
+/* Global Styles for Mobile View */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .nav-links a {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .cart-icon {
+        margin-left: auto;
+    }
+
+    .hero {
+        height: auto;
+        padding: 20px;
+    }
+
+    .brand-name {
+        font-size: 32px;
+    }
+
+    .brand-logo {
+        font-size: 28px;
+    }
+
+    .about-short {
+        font-size: 14px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    /* Footer Adjustments */
+    .footer {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .footer-section ul {
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    nav {
+        padding: 10px 15px;
+    }
+
+    .nav-right {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .brand-name {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .product-card {
+        flex-direction: column;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+ /* Default Mobile Styles */
+.footer {
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-section {
+        margin-bottom: 0;
+    }
+}
+
+}
+
+/* Adjust Navigation Menu for Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+
+    nav .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+    }
+}
+
+
+/* Default Mobile Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+}
+
+.nav-links {
+    display: none; /* Hidden by default for mobile */
+    flex-direction: column;
+    background: #444;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    z-index: 100;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex; /* Show nav links on desktop */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: none;
+    }
+
+    .menu-toggle {
+        display: none; /* Hide the menu toggle on desktop */
+    }
+
+    .nav-links a {
+        border: none;
+        padding: 10px 20px;
+    }
+}

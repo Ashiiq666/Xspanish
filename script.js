@@ -209,3 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// script.js
+document.getElementById("menuToggle").addEventListener("click", function () {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+});
