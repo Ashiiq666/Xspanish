@@ -797,19 +797,20 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 }
 .reel-card {
     position: relative;
-    aspect-ratio: 9 / 16;
     border-radius: var(--radius);
     overflow: hidden;
-    background: var(--bg-soft);
+    background: #fafafa;
     box-shadow: var(--shadow-sm);
     transition: var(--t);
+    min-height: 640px;
 }
 .reel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .reel-card iframe {
     width: 100%;
-    height: 100%;
+    min-height: 640px;
     border: 0;
     display: block;
+    background: #fff;
 }
 .reels-cta { text-align: center; margin-top: 50px; }
 .reels-cta .btn i { color: var(--gold); }
