@@ -870,6 +870,12 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     color: var(--ink);
     padding: 36px;
     border-radius: var(--radius);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 .newsletter-card h3 {
     font-size: 26px;
@@ -877,13 +883,15 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 }
 .newsletter-card .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 12px;
     margin-bottom: 12px;
 }
 .newsletter-card input,
 .newsletter-card textarea {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     padding: 13px 14px;
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -892,10 +900,11 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     background: #fff;
     color: var(--ink);
     transition: var(--t);
+    box-sizing: border-box;
 }
 .newsletter-card input:focus,
 .newsletter-card textarea:focus { outline: none; border-color: var(--accent); }
-.newsletter-card textarea { resize: vertical; margin-bottom: 14px; }
+.newsletter-card textarea { resize: vertical; margin-bottom: 14px; display: block; }
 .check {
     display: flex;
     align-items: center;
@@ -1142,6 +1151,8 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     .outlets, .contact-strip, .shop-section, .collections { padding-top: 70px; padding-bottom: 60px; }
 
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .newsletter-card { padding: 28px; }
+    .newsletter-card .form-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
