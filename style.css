@@ -813,7 +813,21 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     background: #fff;
 }
 .reels-cta { text-align: center; margin-top: 50px; }
-.reels-cta .btn i { color: var(--gold); }
+.reels-cta .btn {
+    letter-spacing: .12em;
+}
+.reels-cta .btn i {
+    color: var(--gold);
+    font-size: 16px;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+.reels-cta .btn span { display: inline-block; }
 
 @media (max-width: 1024px) {
     .reels-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
