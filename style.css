@@ -783,6 +783,46 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 .brand-track span:nth-child(even) { color: var(--accent); }
 
 /* =========================================================
+   Reels Gallery
+   ========================================================= */
+.reels {
+    padding: 100px 40px 90px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+.reel-card {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-soft);
+    box-shadow: var(--shadow-sm);
+    transition: var(--t);
+}
+.reel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.reel-card iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+.reels-cta { text-align: center; margin-top: 50px; }
+.reels-cta .btn i { color: var(--gold); }
+
+@media (max-width: 1024px) {
+    .reels-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .reels { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 480px) {
+    .reels-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
    Outlets
    ========================================================= */
 .outlets {
