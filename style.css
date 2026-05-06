@@ -813,21 +813,38 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     background: #fff;
 }
 .reels-cta { text-align: center; margin-top: 50px; }
-.reels-cta .btn {
-    letter-spacing: .12em;
-}
-.reels-cta .btn i {
-    color: var(--gold);
-    font-size: 16px;
-    width: 18px;
-    height: 18px;
+.follow-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-right: 12px;
-    flex-shrink: 0;
+    padding: 14px 32px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    transition: var(--t);
+    border: 1px solid var(--ink);
 }
-.reels-cta .btn span { display: inline-block; }
+.follow-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+.follow-btn i {
+    color: var(--gold);
+    font-size: 18px;
+    line-height: 1;
+    margin-right: 14px;
+    letter-spacing: 0;
+}
+.follow-btn span {
+    line-height: 1;
+}
 
 @media (max-width: 1024px) {
     .reels-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
