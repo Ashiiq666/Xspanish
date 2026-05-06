@@ -1023,6 +1023,12 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     line-height: 1;
     color: inherit;
 }
+.socials a svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    color: inherit;
+}
 .socials a:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-3px); }
 .socials a:hover i { color: #fff; }
 
