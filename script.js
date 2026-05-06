@@ -98,9 +98,9 @@ const PRODUCTS = [
       image: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=800&auto=format&fit=crop&q=80' },
     { id: 10, name: 'Embroidered Kurta Set', brand: 'Heniis', price: 2799, oldPrice: 3499, badge: 'Sale', cat: 'ethnic',
       image: 'https://images.unsplash.com/photo-1617886322207-6f504e7472c5?w=800&auto=format&fit=crop&q=80' },
-    { id: 11, name: 'Tailored Wool Trousers', brand: 'Louis Philippe', price: 2499, oldPrice: null, badge: null, cat: 'shirts',
+    { id: 11, name: 'Tailored Wool Trousers', brand: 'Van Heusen', price: 2499, oldPrice: null, badge: null, cat: 'shirts',
       image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&auto=format&fit=crop&q=80' },
-    { id: 12, name: 'Heritage Plaid Overshirt', brand: 'Raymond', price: 2199, oldPrice: 2799, badge: 'Sale', cat: 'shirts',
+    { id: 12, name: 'Heritage Plaid Overshirt', brand: 'Allen Solly', price: 2199, oldPrice: 2799, badge: 'Sale', cat: 'shirts',
       image: 'https://images.unsplash.com/photo-1564859228273-274232fdb516?w=800&auto=format&fit=crop&q=80' },
 ];
 
