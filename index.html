@@ -3,266 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X Spanish</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>X SPANISH — Men's Fashion Store | Feroke & Ramanattukara</title>
+    <meta name="description" content="X SPANISH — premium men's fashion store since 2009. Shirts, T-shirts, jeans, ethnic & accessories. Outlets at Feroke and Ramanattukara, Kozhikode, Kerala.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="#" class="logo">X Spanish</a>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#shop-section">Shop</a>
-            <a href="#brand">Brands</a>
-            <a href="#footer">Contact</a>
-        </div>
-        <div class="nav-right">
-            <a href="#" class="login-link">Log In</a>
-            <div class="cart-icon">
-                🛒
-                <span class="cart-count">0</span>
+
+    <!-- Top announcement bar -->
+    <div class="announcement-bar">
+        <i class="fas fa-truck"></i> Free shipping across Kerala on orders above ₹1499 &nbsp;|&nbsp; <i class="fas fa-store"></i> Visit our stores at Feroke & Ramanattukara
+    </div>
+
+    <!-- Navigation -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <a href="#home" class="logo"><img src="logo.jpg" alt="X SPANISH"></a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#shop-section">Shop</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#outlets">Outlets</a></li>
+                <li><a href="#story">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button class="icon-btn" id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+                <a href="#" class="icon-btn" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+                <button class="icon-btn cart-icon" id="cartBtn" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
             </div>
         </div>
     </nav>
 
-
-
-    <main class="hero">
-        <div class="brand-logo">X</div>
-        <h1 class="brand-name">X SPANISH</h1>
-        <div class="about-short">
-            <p>Welcome to X SPANISH, your trusted destination since 2009 for stylish, high-quality clothing for every occasion.</p>
-            <p>Explore top brands like Heniis, Nelly, North Republic, and more, blending timeless elegance with modern trends.</p>
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1600&auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1600&auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=1600&auto=format&fit=crop&q=80');"></div>
         </div>
-        <button class="cta-button">SHOP NOW</button>
-    </main>
-    
-    
-    <div class="chat-widget">Let's Chat!</div>
-
-    <script src="script.js"></script>
-
-
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Your Brand</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-
-    <!-- Shop Section -->
-    <section id="shop-section" >
-        <h1>Our Products</h1>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://plus.unsplash.com/premium_photo-1683140431958-31505d0fd1ff?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVucyUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Cotton Twill Chino Shorts">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info">
-                    <h3>Cotton Twill Chino Shorts</h3>
-                    <p class="price">$55.00</p>
-                </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow" data-aos="fade-up">EST. 2009 · KOZHIKODE</p>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">Define Your <em>Edge</em></h1>
+            <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">Curated men's fashion from leading global brands — at our stores in Feroke &amp; Ramanattukara.</p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                <a href="#shop-section" class="btn btn-primary">Shop the New Arrivals</a>
+                <a href="#outlets" class="btn btn-ghost">Visit Our Stores <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://plus.unsplash.com/premium_photo-1683140431958-31505d0fd1ff?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVucyUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Cotton Twill Chino Shorts">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info">
-                    <h3>Cotton Twill Chino Shorts</h3>
-                    <p class="price">$55.00</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://plus.unsplash.com/premium_photo-1683140431958-31505d0fd1ff?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVucyUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Cotton Twill Chino Shorts">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info">
-                    <h3>Cotton Twill Chino Shorts</h3>
-                    <p class="price">$55.00</p>
-                </div>
-            </div>
+        </div>
+        <div class="hero-scroll"><span></span> Scroll</div>
+    </header>
 
-            <div class="product-card">
-                <div class="product-image-container">
-                    <img src="https://plus.unsplash.com/premium_photo-1683140431958-31505d0fd1ff?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVucyUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Cotton Twill Chino Shorts">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info">
-                    <h3>Cotton Twill Chino Shorts</h3>
-                    <p class="price">$55.00</p>
-                </div>
-            </div>
-            <!-- Repeat for other products -->
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <span>NEW SEASON DROP</span><span>·</span>
+            <span>HENIIS · NELLY · NORTH REPUBLIC</span><span>·</span>
+            <span>FEROKE · RAMANATTUKARA</span><span>·</span>
+            <span>SINCE 2009</span><span>·</span>
+            <span>NEW SEASON DROP</span><span>·</span>
+            <span>HENIIS · NELLY · NORTH REPUBLIC</span><span>·</span>
+            <span>FEROKE · RAMANATTUKARA</span><span>·</span>
+            <span>SINCE 2009</span><span>·</span>
+        </div>
+    </div>
 
-            
+    <!-- Collections -->
+    <section class="collections" id="collections">
+        <div class="section-head" data-aos="fade-up">
+            <p class="eyebrow">Shop by Category</p>
+            <h2>Our Collections</h2>
+            <p class="section-sub">From sharp formals to relaxed weekenders — find a fit for every moment.</p>
         </div>
 
-        <button id="loadMoreBtn" class="load-more-btn">More Products  → </button>
-
+        <div class="collections-grid">
+            <a href="#shop-section" class="collection-card large" data-aos="fade-up" style="background-image:url('https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&auto=format&fit=crop&q=80');">
+                <div class="collection-info">
+                    <span class="collection-tag">12 styles</span>
+                    <h3>Shirts</h3>
+                    <p>Crisp linens, classic oxfords &amp; printed casuals.</p>
+                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="100" style="background-image:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&auto=format&fit=crop&q=80');">
+                <div class="collection-info">
+                    <span class="collection-tag">18 styles</span>
+                    <h3>T-Shirts</h3>
+                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="200" style="background-image:url('https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&auto=format&fit=crop&q=80');">
+                <div class="collection-info">
+                    <span class="collection-tag">9 styles</span>
+                    <h3>Jeans</h3>
+                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="100" style="background-image:url('https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900&auto=format&fit=crop&q=80');">
+                <div class="collection-info">
+                    <span class="collection-tag">7 styles</span>
+                    <h3>Trousers</h3>
+                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="200" style="background-image:url('https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=900&auto=format&fit=crop&q=80');">
+                <div class="collection-info">
+                    <span class="collection-tag">11 styles</span>
+                    <h3>Ethnic</h3>
+                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="#shop-section" class="collection-card large" data-aos="fade-up" data-aos-delay="300" style="background-image:url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1200&auto=format&fit=crop&q=80');">
+                <div class="collection-info">
+                    <span class="collection-tag">15 styles</span>
+                    <h3>Accessories</h3>
+                    <p>Belts, watches, wallets &amp; more.</p>
+                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
     </section>
-   
+
+    <!-- Featured Products -->
+    <section id="shop-section" class="shop-section">
+        <div class="section-head" data-aos="fade-up">
+            <p class="eyebrow">This Week</p>
+            <h2>Featured Products</h2>
+            <p class="section-sub">Hand-picked pieces our stylists are loving right now.</p>
+        </div>
+
+        <div class="filter-tabs" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="shirts">Shirts</button>
+            <button class="filter-btn" data-filter="tshirts">T-Shirts</button>
+            <button class="filter-btn" data-filter="jeans">Jeans</button>
+            <button class="filter-btn" data-filter="ethnic">Ethnic</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="load-more-wrap">
+            <button id="loadMoreBtn" class="btn btn-primary">Load More <i class="fas fa-plus"></i></button>
+        </div>
+    </section>
+
     <!-- Quick View Modal -->
-    <div class="quick-view-modal" id="quickViewModal">
+    <div class="quick-view-modal" id="quickViewModal" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-modal">&times;</button>
+            <button class="close-modal" id="closeModal" aria-label="Close">&times;</button>
             <div class="modal-grid">
                 <div class="modal-images">
-                    <img src="https://plus.unsplash.com/premium_photo-1683140431958-31505d0fd1ff?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVucyUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Product Image" class="main-image">
-                    <div class="image-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                    </div>
+                    <img id="modalMainImage" src="" alt="" class="main-image">
                 </div>
                 <div class="modal-details">
-                    <h2 class="product-title">Cotton Twill Chino Shorts</h2>
-                    <p class="product-price">$55.00</p>
-                    <p class="product-sku">SKU: 0008</p>
-                    
+                    <p class="modal-brand" id="modalBrand"></p>
+                    <h2 class="product-title" id="modalTitle"></h2>
+                    <p class="product-price" id="modalPrice"></p>
+                    <p class="product-sku" id="modalSku"></p>
+
                     <div class="color-selection">
                         <h3>Color</h3>
                         <div class="color-options">
-                            <button class="color-btn gray"></button>
-                            <button class="color-btn blue"></button>
+                            <button class="color-btn black active" data-color="Black"></button>
+                            <button class="color-btn navy" data-color="Navy"></button>
+                            <button class="color-btn beige" data-color="Beige"></button>
+                            <button class="color-btn olive" data-color="Olive"></button>
                         </div>
                     </div>
-                    
-                    <div class="quantity-selector">
-                        <h3>Quantity</h3>
-                        <input type="number" value="1" min="1">
+
+                    <div class="size-selection">
+                        <h3>Size</h3>
+                        <div class="size-options">
+                            <button class="size-btn">S</button>
+                            <button class="size-btn active">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn">XXL</button>
+                        </div>
                     </div>
-                    
-                    <button class="add-to-cart-btn">Add to Cart</button>
-                    <a href="#" class="view-details">View More Details</a>
+
+                    <div class="qty-row">
+                        <div class="quantity-selector">
+                            <button class="qty-btn" id="qtyMinus">−</button>
+                            <input type="number" id="qtyInput" value="1" min="1">
+                            <button class="qty-btn" id="qtyPlus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn" id="addToCartBtn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+
+                    <ul class="modal-meta">
+                        <li><i class="fas fa-truck"></i> Free shipping above ₹1499</li>
+                        <li><i class="fas fa-undo"></i> 7-day easy returns</li>
+                        <li><i class="fas fa-shield-alt"></i> 100% authentic brands</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        
     </div>
 
-
-    <nav>
-        <a href="#" class="logo">X Spanish</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="collaborations.html">Collaborations</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-        <div class="nav-right">
-            <a href="#" class="login-link">Log In</a>
-            <div class="cart-icon">
-                🛒
-                <span class="cart-count">0</span>
+    <!-- Story / About -->
+    <section class="story" id="story">
+        <div class="story-image" data-aos="fade-right" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&auto=format&fit=crop&q=80');"></div>
+        <div class="story-content" data-aos="fade-left">
+            <p class="eyebrow">Our Story</p>
+            <h2>Dressing the men of Kozhikode <em>since 2009</em></h2>
+            <p>X SPANISH began as a single store in Ramanattukara with one belief — that great style should feel personal. Over a decade later, we curate menswear from some of the most loved labels in India and beyond, and walk every customer through it ourselves.</p>
+            <p>Whether it's a wedding sherwani, a Friday night shirt, or a pair of jeans you'll wear into the ground — we have the fit, the brand, and the eye for detail to make sure you walk out feeling like the best version of yourself.</p>
+            <div class="stats">
+                <div class="stat"><h3>15+</h3><p>Years in business</p></div>
+                <div class="stat"><h3>2</h3><p>Outlets across Kozhikode</p></div>
+                <div class="stat"><h3>20+</h3><p>Premium brands</p></div>
+                <div class="stat"><h3>10k+</h3><p>Happy customers</p></div>
             </div>
-        </div>
-    </nav>
-    
-    <!-- Partners Section -->
-    <section class="partners-section" id ="brand">
-        <h1>Our Brand Collaborations</h1>
-        <p class="intro-text">
-            We're proud to collaborate with some of the most innovative and respected brands in the industry. 
-            Together, we create unique experiences and products that reflect our shared commitment to quality and style.
-        </p>
-        
-        <div class="partners-grid">
-            <img src="data:image/png;base64,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" alt="Bajaao" class="partner-logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6jmfCa7em-skBE-UBfbs4LpgFBMeWSqWUgg&s" alt="Caffeine" class="partner-logo">
-            <img src="https://nelly.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2Fhpsr6f8o36yq%2F66AeFChHFNcWPgdIwAPz79%2F974b3cf03b75aed325c1d3524ff4772b%2Fnelly_logotype_black_utancom_2.webp&w=3840&q=75" alt="Yoga Bar" class="partner-logo">
-            <img src="data:image/png;base64,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" alt="Nush" class="partner-logo">
-            <img src="data:image/png;base64,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" alt="John Jacobs" class="partner-logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgayx9tD5TtOMWJQDZ2GswY23I0Pl152aFig&s" alt="Vahdam India" class="partner-logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw8SUCyjp9pcyD8RX4Dy4F0ErLE2iEZKSbvQ&s" alt="Fable Street" class="partner-logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsfkNYU6H2W5YZFq4Tqwt7s7pPxCD7dsCWtg&s" alt="Star Struck" class="partner-logo">
         </div>
     </section>
 
-
-<footer class="footer" id="footer">
-    <div class="footer-section">
-        <h3>Customer Care</h3>
-        <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Shipping & Returns</a></li>
-            <li><a href="#">Store Policy</a></li>
-        </ul>
-    </div>
-    
-    <div class="footer-section">
-        <h3>Connect</h3>
-        <ul>
-            <li><a href="https://www.instagram.com/x_spanish_mens.store/?hl=en" target="_blank">Instagram</a></li>
-            <li><a href="https://twitter.com/xspanishmens" target="_blank">Twitter</a></li>
-            <li><a href="https://www.facebook.com/xspanish/" target="_blank">Facebook</a></li>
-            <li><a href="#contact-section" id="contactLink">Contact</a></li>
-        </ul>
-    </div>
-    
-    
-    <div class="footer-section">
-        <h3>The Company</h3>
-        <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Sustainability</a></li>
-            <li><a href="#">Accessibility</a></li>
-            <li><a href="#">Store Locator</a></li>
-        </ul>
-    </div>
-    
-    <form action="submit.php" method="POST">
-        <div class="newsletter-form">
-            <input type="email" name="email" placeholder="fashion@xspanish.in" required>
-            <div class="checkbox-container">
-                <input type="checkbox" id="subscribe" name="subscribe">
-                <label for="subscribe">Yes, subscribe me to your newsletter.</label>
-            </div>
-            <button class="submit-btn" type="submit">Submit</button>
+    <!-- Brands -->
+    <section class="brands" id="brands">
+        <div class="section-head" data-aos="fade-up">
+            <p class="eyebrow">Trusted Labels</p>
+            <h2>Brands We Carry</h2>
+            <p class="section-sub">A handpicked roster of menswear we believe in.</p>
         </div>
-    </form>
-    
-
-       <!-- Copyright Notice -->
-       <div class="footer-copyright">
-        <p>&copy; 2024 X SPANISH. All rights reserved. Designed by X SPANISH Team.</p>
-    </div>
-    
-</footer>
-
-<!-- Contact Form Overlay -->
-<div class="contact-overlay" id="contactOverlay">
-    <div class="contact-form">
-        <button class="close-btn" id="closeContact">&times;</button>
-        <h2>Contact Us</h2>
-        <form>
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" required>
+        <div class="brand-marquee" data-aos="fade-up">
+            <div class="brand-track">
+                <span>HENIIS</span><span>·</span>
+                <span>NELLY</span><span>·</span>
+                <span>NORTH REPUBLIC</span><span>·</span>
+                <span>RAYMOND</span><span>·</span>
+                <span>PETER ENGLAND</span><span>·</span>
+                <span>LOUIS PHILIPPE</span><span>·</span>
+                <span>ALLEN SOLLY</span><span>·</span>
+                <span>VAN HEUSEN</span><span>·</span>
+                <span>HENIIS</span><span>·</span>
+                <span>NELLY</span><span>·</span>
+                <span>NORTH REPUBLIC</span><span>·</span>
+                <span>RAYMOND</span><span>·</span>
+                <span>PETER ENGLAND</span><span>·</span>
+                <span>LOUIS PHILIPPE</span><span>·</span>
+                <span>ALLEN SOLLY</span><span>·</span>
+                <span>VAN HEUSEN</span><span>·</span>
             </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" required>
+        </div>
+    </section>
+
+    <!-- Outlets / Stores -->
+    <section class="outlets" id="outlets">
+        <div class="section-head" data-aos="fade-up">
+            <p class="eyebrow">Find Us</p>
+            <h2>Visit an Outlet</h2>
+            <p class="section-sub">Step in for a styling chat, alterations, or just a coffee. We'd love to meet you.</p>
+        </div>
+
+        <div class="outlets-grid">
+            <article class="outlet-card" data-aos="fade-up">
+                <div class="outlet-map">
+                    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Feroke,+Kozhikode,+Kerala&output=embed"></iframe>
+                </div>
+                <div class="outlet-body">
+                    <span class="outlet-tag">Flagship</span>
+                    <h3>X Spanish — Feroke</h3>
+                    <p class="outlet-address"><i class="fas fa-location-dot"></i> Feroke, Kozhikode, Kerala 673631</p>
+                    <ul class="outlet-meta">
+                        <li><i class="far fa-clock"></i> Open today · 10:00 AM – 9:30 PM</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+919999999999">+91 99999 99999</a></li>
+                    </ul>
+                    <div class="outlet-actions">
+                        <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Feroke,Kozhikode,Kerala"><i class="fas fa-diamond-turn-right"></i> Directions</a>
+                        <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Feroke,Kozhikode,Kerala"><i class="fas fa-map"></i> View larger map</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="outlet-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="outlet-map">
+                    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Ramanattukara,+Kozhikode,+Kerala&output=embed"></iframe>
+                </div>
+                <div class="outlet-body">
+                    <span class="outlet-tag">Original Store</span>
+                    <h3>X Spanish — Ramanattukara</h3>
+                    <p class="outlet-address"><i class="fas fa-location-dot"></i> Ramanattukara, Kozhikode, Kerala 673633</p>
+                    <ul class="outlet-meta">
+                        <li><i class="far fa-clock"></i> Open today · 10:00 AM – 9:30 PM</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+919999999999">+91 99999 99999</a></li>
+                    </ul>
+                    <div class="outlet-actions">
+                        <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Ramanattukara,Kozhikode,Kerala"><i class="fas fa-diamond-turn-right"></i> Directions</a>
+                        <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ramanattukara,Kozhikode,Kerala"><i class="fas fa-map"></i> View larger map</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Newsletter / Contact -->
+    <section class="contact-strip" id="contact">
+        <div class="contact-grid">
+            <div class="contact-info" data-aos="fade-right">
+                <p class="eyebrow">Stay In Touch</p>
+                <h2>Be the first to know</h2>
+                <p>Get exclusive previews of new arrivals, festive lookbooks, and members-only offers — straight to your inbox.</p>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> hello@xspanish.in</li>
+                    <li><i class="fas fa-phone"></i> +91 99999 99999</li>
+                    <li><i class="fab fa-whatsapp"></i> Chat on WhatsApp</li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea rows="4" required></textarea>
+            <form class="newsletter-card" id="newsletterForm" data-aos="fade-left">
+                <h3>Join the X SPANISH list</h3>
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="email" name="email" placeholder="you@email.com" required>
+                </div>
+                <textarea name="message" rows="3" placeholder="A note for our team (optional)"></textarea>
+                <label class="check"><input type="checkbox" id="subscribe" checked> Subscribe me to updates &amp; lookbooks.</label>
+                <button class="btn btn-primary btn-block" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+                <p class="form-status" id="formStatus"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo logo-light"><img src="logo.jpg" alt="X SPANISH"></a>
+                <p>Premium men's fashion store, dressing the men of Kozhikode since 2009. Visit us at Feroke or Ramanattukara.</p>
+                <div class="socials">
+                    <a href="https://www.instagram.com/x_spanish_mens.store/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/xspanish/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/xspanishmens" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </div>
-</div>
 
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#shop-section">Featured Products</a></li>
+                    <li><a href="#brands">Brands</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
 
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#outlets">Store Locator</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
 
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping &amp; Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
 
+        <div class="footer-bottom">
+            <p>&copy; 2026 X SPANISH. All rights reserved.</p>
+            <p>Crafted with <i class="fas fa-heart"></i> in Kozhikode, Kerala.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/919999999999" class="fab whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <button class="fab back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cart Drawer -->
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="cart-head">
+            <h3>Your Bag</h3>
+            <button class="close-cart" id="closeCart" aria-label="Close">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your bag is empty.</p>
+                <a href="#shop-section" class="btn btn-primary btn-sm" id="cartShopNow">Shop now</a>
+            </div>
+        </div>
+        <div class="cart-foot" id="cartFoot" hidden>
+            <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div>
+            <button class="btn btn-primary btn-block">Checkout</button>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
