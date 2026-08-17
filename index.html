@@ -1,474 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X SPANISH — Men's Fashion Store | Feroke & Ramanattukara</title>
-    <meta name="description" content="X SPANISH — premium men's fashion store since 2009. Shirts, T-shirts, jeans, ethnic & accessories. Outlets at Feroke and Ramanattukara, Kozhikode, Kerala.">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X SPANISH — Premium Menswear | Feroke &amp; Ramanattukara, Kozhikode</title>
+<meta name="description" content="X SPANISH — curated premium menswear since 2009. Shirts, t-shirts, jeans, trousers, ethnic wear and accessories. Outlets at Feroke and Ramanattukara, Kozhikode, Kerala.">
+<meta property="og:title" content="X SPANISH — Premium Menswear">
+<meta property="og:description" content="Curated premium menswear since 2009. Visit our outlets at Feroke and Ramanattukara, Kozhikode.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xspanish.in/">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Top announcement bar -->
-    <div class="announcement-bar">
-        <i class="fas fa-truck"></i> Free shipping across Kerala on orders above ₹1499 &nbsp;|&nbsp; <i class="fas fa-store"></i> Visit our stores at Feroke & Ramanattukara
+<!-- ===== Announcement ===== -->
+<div class="announcement" id="announcement">
+    <span>Free shipping across Kerala on orders above &#8377;1,499</span>
+    <span>Visit us at Feroke &amp; Ramanattukara</span>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="header is-below-announcement" id="header">
+    <div class="header__inner">
+
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="header__nav" aria-label="Primary">
+            <div class="nav__item">
+                <a href="#categories" class="nav__link">Shop</a>
+                <div class="nav__dropdown">
+                    <a href="#categories">Shirts</a>
+                    <a href="#categories">T-Shirts</a>
+                    <a href="#categories">Jeans</a>
+                    <a href="#categories">Trousers</a>
+                    <a href="#categories">Ethnic</a>
+                    <a href="#categories">Accessories</a>
+                </div>
+            </div>
+            <a href="#new" class="nav__link">New In</a>
+            <a href="about.html" class="nav__link">About</a>
+            <a href="#outlets" class="nav__link">Outlets</a>
+            <a href="#contact" class="nav__link">Contact</a>
+        </nav>
+
+        <a href="index.html" class="header__logo" aria-label="X SPANISH home">
+                <img class="logo-light" src="logo-light.png" alt="X SPANISH">
+                <img class="logo-dark" src="logo-dark.png" alt="X SPANISH">
+            </a>
+
+        <div class="header__actions">
+            <button class="icon-btn" id="searchBtn" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            </button>
+            <a href="#contact" class="icon-btn" aria-label="Account">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+            </a>
+            <button class="icon-btn" id="cartBtn" aria-label="Open cart">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 14H7L6 7Z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+                <span class="cart-count is-empty" id="cartCount">0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== Mobile nav ===== -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <div class="mobile-nav__head">
+        <img src="logo-dark.png" alt="X SPANISH">
+        <button class="icon-btn" id="mobileNavClose" aria-label="Close menu" style="font-size:26px;line-height:1">&times;</button>
+    </div>
+    <ul class="mobile-nav__list">
+        <li>
+            <a href="#categories">Shop</a>
+            <div class="mobile-nav__sub">
+                <a href="#categories">Shirts</a>
+                <a href="#categories">T-Shirts</a>
+                <a href="#categories">Jeans</a>
+                <a href="#categories">Trousers</a>
+                <a href="#categories">Ethnic</a>
+                <a href="#categories">Accessories</a>
+            </div>
+        </li>
+        <li><a href="#new">New In</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="#outlets">Outlets</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__foot">
+        <a href="tel:+918089838365">+91 80898 38365</a>
+        <a href="mailto:fashion@xspanish.in">fashion@xspanish.in</a>
+    </div>
+</nav>
+
+<!-- ===== Search ===== -->
+<div class="search-panel" id="searchPanel" aria-hidden="true">
+    <div class="container">
+        <form class="search-panel__form" id="searchForm" role="search">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="searchInput" placeholder="Search for shirts, jeans, brands…" aria-label="Search products">
+            <button type="button" class="icon-btn" id="searchClose" aria-label="Close search" style="font-size:26px;line-height:1">&times;</button>
+        </form>
+        <div class="search-results" id="searchResults"></div>
+        <p class="search-empty" id="searchEmpty">Start typing to search our catalogue.</p>
+    </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home" aria-label="Featured collections">
+    <div class="hero__slide is-active" style="background-image:url('https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1920&auto=format&fit=crop&q=80')"></div>
+    <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1920&auto=format&fit=crop&q=80')"></div>
+    <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=1920&auto=format&fit=crop&q=80')"></div>
+
+    <div class="hero__content">
+        <div class="hero__caption">
+            <p class="hero__eyebrow">Est. 2009 &middot; Kozhikode</p>
+            <h1 class="hero__title">Define Your Edge</h1>
+            <p class="hero__text">Curated menswear from the labels we believe in — styled, fitted and finished in store.</p>
+            <div class="hero__cta">
+                <a href="#new" class="btn btn--light">Shop New In</a>
+                <a href="#outlets" class="btn btn--light">Visit Our Stores</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="mainNav">
-        <div class="nav-container">
-            <a href="#home" class="logo"><img src="logo.jpg" alt="X SPANISH"></a>
+    <div class="hero__dots" id="heroDots" role="tablist" aria-label="Hero slides"></div>
+</section>
 
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+<!-- ===== Marquee ===== -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marqueeTrack">
+        <span>New Season Drop</span><span>&middot;</span>
+        <span>Free Shipping Over &#8377;1,499</span><span>&middot;</span>
+        <span>Feroke &amp; Ramanattukara</span><span>&middot;</span>
+        <span>100% Authentic Brands</span><span>&middot;</span>
+        <span>In-Store Alterations</span><span>&middot;</span>
+        <span>Since 2009</span><span>&middot;</span>
+    </div>
+</div>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#collections">Collections</a></li>
-                <li><a href="#shop-section">Shop</a></li>
-                <li><a href="#brands">Brands</a></li>
-                <li><a href="#reels">Reels</a></li>
-                <li><a href="#outlets">Outlets</a></li>
-                <li><a href="#story">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<!-- ===== New Arrivals / Bestsellers ===== -->
+<section class="section" id="new">
+    <div class="container">
+        <div class="tabs reveal" role="tablist" aria-label="Product collections">
+            <button class="tab is-active" role="tab" aria-selected="true" data-tab="new">New Arrivals</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="best">Bestsellers</button>
+        </div>
 
-            <div class="nav-right">
-                <button class="icon-btn" id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
-                <a href="#" class="icon-btn" aria-label="Wishlist"><i class="far fa-heart"></i></a>
-                <button class="icon-btn cart-icon" id="cartBtn" aria-label="Cart">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">0</span>
+        <div class="tab-panel is-active" id="panel-new" role="tabpanel">
+            <div class="carousel">
+                <button class="carousel__nav carousel__nav--prev" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+                </button>
+                <div class="carousel__track" data-carousel="new"></div>
+                <button class="carousel__nav carousel__nav--next" aria-label="Next">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
                 </button>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero -->
-    <header class="hero" id="home">
-        <div class="hero-slides">
-            <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1600&auto=format&fit=crop&q=80');"></div>
-            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1600&auto=format&fit=crop&q=80');"></div>
-            <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=1600&auto=format&fit=crop&q=80');"></div>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-eyebrow" data-aos="fade-up">EST. 2009 · KOZHIKODE</p>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">Define Your <em>Edge</em></h1>
-            <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">Curated men's fashion from leading global brands — at our stores in Feroke &amp; Ramanattukara.</p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-                <a href="#shop-section" class="btn btn-primary">Shop the New Arrivals</a>
-                <a href="#outlets" class="btn btn-ghost">Visit Our Stores <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <div class="hero-scroll"><span></span> Scroll</div>
-    </header>
-
-    <!-- Marquee -->
-    <div class="marquee">
-        <div class="marquee-track">
-            <span>NEW SEASON DROP</span><span>·</span>
-            <span>HENIIS · NELLY · NORTH REPUBLIC</span><span>·</span>
-            <span>FEROKE · RAMANATTUKARA</span><span>·</span>
-            <span>SINCE 2009</span><span>·</span>
-            <span>NEW SEASON DROP</span><span>·</span>
-            <span>HENIIS · NELLY · NORTH REPUBLIC</span><span>·</span>
-            <span>FEROKE · RAMANATTUKARA</span><span>·</span>
-            <span>SINCE 2009</span><span>·</span>
-        </div>
-    </div>
-
-    <!-- Collections -->
-    <section class="collections" id="collections">
-        <div class="section-head" data-aos="fade-up">
-            <p class="eyebrow">Shop by Category</p>
-            <h2>Our Collections</h2>
-            <p class="section-sub">From sharp formals to relaxed weekenders — find a fit for every moment.</p>
-        </div>
-
-        <div class="collections-grid">
-            <a href="#shop-section" class="collection-card large" data-aos="fade-up" style="background-image:url('https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&auto=format&fit=crop&q=80');">
-                <div class="collection-info">
-                    <span class="collection-tag">12 styles</span>
-                    <h3>Shirts</h3>
-                    <p>Crisp linens, classic oxfords &amp; printed casuals.</p>
-                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="100" style="background-image:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&auto=format&fit=crop&q=80');">
-                <div class="collection-info">
-                    <span class="collection-tag">18 styles</span>
-                    <h3>T-Shirts</h3>
-                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="200" style="background-image:url('https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&auto=format&fit=crop&q=80');">
-                <div class="collection-info">
-                    <span class="collection-tag">9 styles</span>
-                    <h3>Jeans</h3>
-                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="100" style="background-image:url('https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900&auto=format&fit=crop&q=80');">
-                <div class="collection-info">
-                    <span class="collection-tag">7 styles</span>
-                    <h3>Trousers</h3>
-                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="#shop-section" class="collection-card" data-aos="fade-up" data-aos-delay="200" style="background-image:url('https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=900&auto=format&fit=crop&q=80');">
-                <div class="collection-info">
-                    <span class="collection-tag">11 styles</span>
-                    <h3>Ethnic</h3>
-                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="#shop-section" class="collection-card large" data-aos="fade-up" data-aos-delay="300" style="background-image:url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1200&auto=format&fit=crop&q=80');">
-                <div class="collection-info">
-                    <span class="collection-tag">15 styles</span>
-                    <h3>Accessories</h3>
-                    <p>Belts, watches, wallets &amp; more.</p>
-                    <span class="link-arrow">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section id="shop-section" class="shop-section">
-        <div class="section-head" data-aos="fade-up">
-            <p class="eyebrow">This Week</p>
-            <h2>Featured Products</h2>
-            <p class="section-sub">Hand-picked pieces our stylists are loving right now.</p>
-        </div>
-
-        <div class="filter-tabs" data-aos="fade-up">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="shirts">Shirts</button>
-            <button class="filter-btn" data-filter="tshirts">T-Shirts</button>
-            <button class="filter-btn" data-filter="jeans">Jeans</button>
-            <button class="filter-btn" data-filter="ethnic">Ethnic</button>
-        </div>
-
-        <div class="products-grid" id="productsGrid"></div>
-
-        <div class="load-more-wrap">
-            <button id="loadMoreBtn" class="btn btn-primary">Load More <i class="fas fa-plus"></i></button>
-        </div>
-    </section>
-
-    <!-- Quick View Modal -->
-    <div class="quick-view-modal" id="quickViewModal" aria-hidden="true">
-        <div class="modal-content">
-            <button class="close-modal" id="closeModal" aria-label="Close">&times;</button>
-            <div class="modal-grid">
-                <div class="modal-images">
-                    <img id="modalMainImage" src="" alt="" class="main-image">
-                </div>
-                <div class="modal-details">
-                    <p class="modal-brand" id="modalBrand"></p>
-                    <h2 class="product-title" id="modalTitle"></h2>
-                    <p class="product-price" id="modalPrice"></p>
-                    <p class="product-sku" id="modalSku"></p>
-
-                    <div class="color-selection">
-                        <h3>Color</h3>
-                        <div class="color-options">
-                            <button class="color-btn black active" data-color="Black"></button>
-                            <button class="color-btn navy" data-color="Navy"></button>
-                            <button class="color-btn beige" data-color="Beige"></button>
-                            <button class="color-btn olive" data-color="Olive"></button>
-                        </div>
-                    </div>
-
-                    <div class="size-selection">
-                        <h3>Size</h3>
-                        <div class="size-options">
-                            <button class="size-btn">S</button>
-                            <button class="size-btn active">M</button>
-                            <button class="size-btn">L</button>
-                            <button class="size-btn">XL</button>
-                            <button class="size-btn">XXL</button>
-                        </div>
-                    </div>
-
-                    <div class="qty-row">
-                        <div class="quantity-selector">
-                            <button class="qty-btn" id="qtyMinus">−</button>
-                            <input type="number" id="qtyInput" value="1" min="1">
-                            <button class="qty-btn" id="qtyPlus">+</button>
-                        </div>
-                        <button class="add-to-cart-btn" id="addToCartBtn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
-                    </div>
-
-                    <ul class="modal-meta">
-                        <li><i class="fas fa-truck"></i> Free shipping above ₹1499</li>
-                        <li><i class="fas fa-undo"></i> 7-day easy returns</li>
-                        <li><i class="fas fa-shield-alt"></i> 100% authentic brands</li>
-                    </ul>
-                </div>
+        <div class="tab-panel" id="panel-best" role="tabpanel">
+            <div class="carousel">
+                <button class="carousel__nav carousel__nav--prev" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+                </button>
+                <div class="carousel__track" data-carousel="best"></div>
+                <button class="carousel__nav carousel__nav--next" aria-label="Next">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+                </button>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Story / About -->
-    <section class="story" id="story">
-        <div class="story-image" data-aos="fade-right" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&auto=format&fit=crop&q=80');"></div>
-        <div class="story-content" data-aos="fade-left">
-            <p class="eyebrow">Our Story</p>
-            <h2>Dressing the men of Kozhikode <em>since 2009</em></h2>
-            <p>X SPANISH began as a single store in Feroke with one belief — that great style should feel personal. Over a decade later, we curate menswear from some of the most loved labels in India and beyond, and walk every customer through it ourselves.</p>
-            <p>Whether it's a wedding sherwani, a Friday night shirt, or a pair of jeans you'll wear into the ground — we have the fit, the brand, and the eye for detail to make sure you walk out feeling like the best version of yourself.</p>
-            <div class="stats">
-                <div class="stat"><h3>15+</h3><p>Years in business</p></div>
-                <div class="stat"><h3>2</h3><p>Outlets across Kozhikode</p></div>
-                <div class="stat"><h3>20+</h3><p>Premium brands</p></div>
-                <div class="stat"><h3>50k+</h3><p>Happy customers</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instagram Reels Gallery -->
-    <section class="reels" id="reels">
-        <div class="section-head" data-aos="fade-up">
-            <p class="eyebrow">@x.spanish_ on Instagram</p>
-            <h2>The Collection in <em>Motion</em></h2>
-            <p class="section-sub">Watch our latest drops, lookbooks and styling reels — straight from the store.</p>
+<!-- ===== Categories ===== -->
+<section class="section" id="categories">
+    <div class="container container--wide">
+        <div class="section-head reveal">
+            <h2 class="section-title">Our Categories</h2>
         </div>
 
-        <!-- To swap in real reels, replace each data-reel id with the shortcode from a reel URL,
-             e.g. https://www.instagram.com/reel/CxYz1234abc/  →  data-reel="CxYz1234abc" -->
-        <div class="reels-grid" data-aos="fade-up">
-            <div class="reel-card">
-                <iframe loading="lazy" allow="encrypted-media" allowfullscreen scrolling="no"
-                    src="https://www.instagram.com/p/DVX7GP8AKQQ/embed"></iframe>
-            </div>
-            <div class="reel-card">
-                <iframe loading="lazy" allow="encrypted-media" allowfullscreen scrolling="no"
-                    src="https://www.instagram.com/p/DVa3vDKkxKt/embed"></iframe>
-            </div>
-            <div class="reel-card">
-                <iframe loading="lazy" allow="encrypted-media" allowfullscreen scrolling="no"
-                    src="https://www.instagram.com/p/DSKhPJzk_M2/embed"></iframe>
-            </div>
-            <div class="reel-card">
-                <iframe loading="lazy" allow="encrypted-media" allowfullscreen scrolling="no"
-                    src="https://www.instagram.com/p/DSFj0Eak09S/embed"></iframe>
-            </div>
-        </div>
-
-        <div class="reels-cta" data-aos="fade-up">
-            <a href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener" class="follow-btn">
-                Follow @x.spanish_
+        <!-- 12-col mosaic: two feature cells, then four half-height cells -->
+        <div class="category-grid reveal">
+            <a href="#new" class="category-card category-card--lg">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&auto=format&fit=crop&q=80" alt="Shirts" loading="lazy">
+                <div class="category-card__label"><h3>Shirts</h3><span>12 styles</span></div>
+            </a>
+            <a href="#new" class="category-card category-card--lg">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&auto=format&fit=crop&q=80" alt="T-Shirts" loading="lazy">
+                <div class="category-card__label"><h3>T-Shirts</h3><span>18 styles</span></div>
+            </a>
+            <a href="#new" class="category-card">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=700&auto=format&fit=crop&q=80" alt="Jeans" loading="lazy">
+                <div class="category-card__label"><h3>Jeans</h3><span>9 styles</span></div>
+            </a>
+            <a href="#new" class="category-card">
+                <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=700&auto=format&fit=crop&q=80" alt="Trousers" loading="lazy">
+                <div class="category-card__label"><h3>Trousers</h3><span>7 styles</span></div>
+            </a>
+            <a href="#new" class="category-card">
+                <img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=700&auto=format&fit=crop&q=80" alt="Ethnic" loading="lazy">
+                <div class="category-card__label"><h3>Ethnic</h3><span>11 styles</span></div>
+            </a>
+            <a href="#new" class="category-card">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=700&auto=format&fit=crop&q=80" alt="Accessories" loading="lazy">
+                <div class="category-card__label"><h3>Accessories</h3><span>15 styles</span></div>
             </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Brands -->
-    <section class="brands" id="brands">
-        <div class="section-head" data-aos="fade-up">
-            <p class="eyebrow">Trusted Labels</p>
-            <h2>Brands We Carry</h2>
-            <p class="section-sub">A handpicked roster of menswear we believe in.</p>
+<!-- ===== Featured: Shirts ===== -->
+<section class="section" id="collection-shirts">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">Featured Collection</p>
+            <h2 class="section-title">Shirts</h2>
         </div>
-        <div class="brand-marquee" data-aos="fade-up">
-            <div class="brand-track">
-                <span>HENIIS</span><span>·</span>
-                <span>NELLY</span><span>·</span>
-                <span>NORTH REPUBLIC</span><span>·</span>
-                <span>PETER ENGLAND</span><span>·</span>
-                <span>ALLEN SOLLY</span><span>·</span>
-                <span>VAN HEUSEN</span><span>·</span>
-                <span>HENIIS</span><span>·</span>
-                <span>NELLY</span><span>·</span>
-                <span>NORTH REPUBLIC</span><span>·</span>
-                <span>PETER ENGLAND</span><span>·</span>
-                <span>ALLEN SOLLY</span><span>·</span>
-                <span>VAN HEUSEN</span><span>·</span>
-            </div>
+        <div class="carousel reveal">
+            <button class="carousel__nav carousel__nav--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+            </button>
+            <div class="carousel__track" data-carousel="shirts"></div>
+            <button class="carousel__nav carousel__nav--next" aria-label="Next">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+            </button>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Outlets / Stores -->
-    <section class="outlets" id="outlets">
-        <div class="section-head" data-aos="fade-up">
-            <p class="eyebrow">Find Us</p>
-            <h2>Visit an Outlet</h2>
-            <p class="section-sub">Step in for a styling chat, alterations, or just a coffee. We'd love to meet you.</p>
+<!-- ===== Banner ===== -->
+<section class="banner" style="background-image:url('https://images.unsplash.com/photo-1516826957135-700dedea698c?w=1920&auto=format&fit=crop&q=80')">
+    <div class="banner__inner">
+        <h2 class="banner__title">Dressed For The Occasion</h2>
+        <p class="banner__text">From boardroom formals to weekend linen — fifteen years of getting the fit right, one customer at a time.</p>
+        <a href="#outlets" class="btn btn--light">Book a Styling Visit</a>
+    </div>
+</section>
+
+<!-- ===== Featured: Ethnic ===== -->
+<section class="section" id="collection-ethnic">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">Featured Collection</p>
+            <h2 class="section-title">Ethnic</h2>
+        </div>
+        <div class="carousel reveal">
+            <button class="carousel__nav carousel__nav--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+            </button>
+            <div class="carousel__track" data-carousel="ethnic"></div>
+            <button class="carousel__nav carousel__nav--next" aria-label="Next">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Lookbook / Instagram ===== -->
+<section class="section" id="lookbook">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">@x.spanish_</p>
+            <h2 class="section-title">The Lookbook</h2>
+            <p class="section-sub">New drops, styling notes and fit checks — straight from the shop floor.</p>
+        </div>
+
+        <div class="media-grid reveal">
+            <a class="media-grid__item" href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=700&auto=format&fit=crop&q=80" alt="Lookbook" loading="lazy">
+                <span class="media-grid__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+            </a>
+            <a class="media-grid__item" href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener">
+                <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=700&auto=format&fit=crop&q=80" alt="Lookbook" loading="lazy">
+                <span class="media-grid__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+            </a>
+            <a class="media-grid__item" href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener">
+                <img src="https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=700&auto=format&fit=crop&q=80" alt="Lookbook" loading="lazy">
+                <span class="media-grid__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+            </a>
+            <a class="media-grid__item" href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&auto=format&fit=crop&q=80" alt="Lookbook" loading="lazy">
+                <span class="media-grid__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+            </a>
+        </div>
+
+        <div style="text-align:center;margin-top:34px" class="reveal">
+            <a href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener" class="link-underline">Follow @x.spanish_</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Featured: Casual ===== -->
+<section class="section" id="collection-casual">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">Featured Collection</p>
+            <h2 class="section-title">Casual</h2>
+        </div>
+        <div class="carousel reveal">
+            <button class="carousel__nav carousel__nav--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+            </button>
+            <div class="carousel__track" data-carousel="casual"></div>
+            <button class="carousel__nav carousel__nav--next" aria-label="Next">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Story ===== -->
+<section class="story" id="story">
+    <div class="story__media" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&auto=format&fit=crop&q=80')"></div>
+    <div class="story__body">
+        <p class="section-eyebrow">Our Story</p>
+        <h2>Dressing Kozhikode Since 2009</h2>
+        <p>X SPANISH began as a single store in Feroke with one belief — that great style should feel personal. Over a decade later we curate menswear from some of the most loved labels in India and beyond, and walk every customer through it ourselves.</p>
+        <p>A wedding sherwani, a Friday night shirt, or the pair of jeans you'll wear into the ground — we have the fit, the label and the eye for detail to send you out feeling like the best version of yourself.</p>
+        <div class="stats">
+            <div class="stat"><strong>15+</strong><span>Years</span></div>
+            <div class="stat"><strong>2</strong><span>Outlets</span></div>
+            <div class="stat"><strong>20+</strong><span>Brands</span></div>
+            <div class="stat"><strong>50k+</strong><span>Customers</span></div>
+        </div>
+        <div style="margin-top:34px">
+            <a href="about.html" class="link-underline">Read our story</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Outlets ===== -->
+<section class="section" id="outlets">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">Find Us</p>
+            <h2 class="section-title">Visit An Outlet</h2>
+            <p class="section-sub">Step in for a styling chat, an alteration, or just to see how it falls.</p>
         </div>
 
         <div class="outlets-grid">
-            <article class="outlet-card" data-aos="fade-up">
-                <div class="outlet-map">
-                    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            <article class="outlet reveal">
+                <div class="outlet__map">
+                    <iframe title="Map to X Spanish Feroke" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                         src="https://www.google.com/maps?q=Feroke,+Kozhikode,+Kerala&output=embed"></iframe>
                 </div>
-                <div class="outlet-body">
-                    <span class="outlet-tag">Original Store</span>
-                    <h3>X Spanish — Feroke</h3>
-                    <p class="outlet-address"><i class="fas fa-location-dot"></i> Feroke, Kozhikode, Kerala 673631</p>
-                    <ul class="outlet-meta">
-                        <li><i class="far fa-clock"></i> Open today · 10:00 AM – 9:30 PM</li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+918089838365">+91 80898 38365</a></li>
+                <div class="outlet__body">
+                    <span class="outlet__tag">Original Store</span>
+                    <h3>Feroke</h3>
+                    <ul class="outlet__meta">
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                            Feroke, Kozhikode, Kerala 673631
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                            Open daily &middot; 10:00 AM – 9:30 PM
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>
+                            <a href="tel:+918089838365">+91 80898 38365</a>
+                        </li>
                     </ul>
-                    <div class="outlet-actions">
-                        <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Feroke,Kozhikode,Kerala"><i class="fas fa-diamond-turn-right"></i> Directions</a>
-                        <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Feroke,Kozhikode,Kerala"><i class="fas fa-map"></i> View larger map</a>
+                    <div class="outlet__actions">
+                        <a class="btn btn--sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Feroke,Kozhikode,Kerala">Directions</a>
+                        <a class="btn btn--outline btn--sm" target="_blank" rel="noopener" href="https://wa.me/918089838365">WhatsApp</a>
                     </div>
                 </div>
             </article>
 
-            <article class="outlet-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="outlet-map">
-                    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            <article class="outlet reveal">
+                <div class="outlet__map">
+                    <iframe title="Map to X Spanish Ramanattukara" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                         src="https://www.google.com/maps?q=Ramanattukara,+Kozhikode,+Kerala&output=embed"></iframe>
                 </div>
-                <div class="outlet-body">
-                    <span class="outlet-tag">Flagship</span>
-                    <h3>X Spanish — Ramanattukara</h3>
-                    <p class="outlet-address"><i class="fas fa-location-dot"></i> Ramanattukara, Kozhikode, Kerala 673633</p>
-                    <ul class="outlet-meta">
-                        <li><i class="far fa-clock"></i> Open today · 10:00 AM – 9:30 PM</li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+918089838365">+91 80898 38365</a></li>
+                <div class="outlet__body">
+                    <span class="outlet__tag">Flagship</span>
+                    <h3>Ramanattukara</h3>
+                    <ul class="outlet__meta">
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                            Ramanattukara, Kozhikode, Kerala 673633
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                            Open daily &middot; 10:00 AM – 9:30 PM
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>
+                            <a href="tel:+918089838365">+91 80898 38365</a>
+                        </li>
                     </ul>
-                    <div class="outlet-actions">
-                        <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Ramanattukara,Kozhikode,Kerala"><i class="fas fa-diamond-turn-right"></i> Directions</a>
-                        <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ramanattukara,Kozhikode,Kerala"><i class="fas fa-map"></i> View larger map</a>
+                    <div class="outlet__actions">
+                        <a class="btn btn--sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Ramanattukara,Kozhikode,Kerala">Directions</a>
+                        <a class="btn btn--outline btn--sm" target="_blank" rel="noopener" href="https://wa.me/918089838365">WhatsApp</a>
                     </div>
                 </div>
             </article>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Newsletter / Contact -->
-    <section class="contact-strip" id="contact">
-        <div class="contact-grid">
-            <div class="contact-info" data-aos="fade-right">
-                <p class="eyebrow">Stay In Touch</p>
-                <h2>Be the first to know</h2>
-                <p>Get exclusive previews of new arrivals, festive lookbooks, and members-only offers — straight to your inbox.</p>
-                <ul class="contact-list">
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:fashion@xspanish.in">fashion@xspanish.in</a></li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:+918089838365">+91 80898 38365</a></li>
-                    <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918089838365" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
-                </ul>
-            </div>
-            <form class="newsletter-card" id="newsletterForm" data-aos="fade-left">
-                <h3>Join the X SPANISH list</h3>
-                <div class="form-row">
-                    <input type="text" name="name" placeholder="Your name" required>
-                    <input type="email" name="email" placeholder="you@email.com" required>
-                </div>
-                <textarea name="message" rows="3" placeholder="A note for our team (optional)"></textarea>
-                <label class="check"><input type="checkbox" id="subscribe" checked> Subscribe me to updates &amp; lookbooks.</label>
-                <button class="btn btn-primary btn-block" type="submit">Send <i class="fas fa-paper-plane"></i></button>
-                <p class="form-status" id="formStatus"></p>
+<!-- ===== Newsletter ===== -->
+<section class="section newsletter" id="contact">
+    <div class="container">
+        <div class="newsletter__inner reveal">
+            <p class="section-eyebrow">Newsletter</p>
+            <h2 class="section-title">Stay In The Know</h2>
+            <p class="section-sub">Sign up to receive early access to new arrivals, festive lookbooks and in-store offers.</p>
+            <form class="newsletter__form" id="newsletterForm">
+                <input type="email" name="email" id="newsletterEmail" placeholder="Your email address" required aria-label="Email address">
+                <button type="submit">Subscribe</button>
             </form>
+            <p class="form-status" id="formStatus" role="status"></p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#home" class="logo logo-light"><img src="logo.jpg" alt="X SPANISH"></a>
-                <p>Premium men's fashion store, dressing the men of Kozhikode since 2009. Visit us at Feroke or Ramanattukara.</p>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="logo-light.png" alt="X SPANISH"></div>
+                <p class="footer__about">Premium menswear, curated and fitted in store. Dressing the men of Kozhikode since 2009.</p>
                 <div class="socials">
                     <a href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
                     </a>
                     <a href="https://www.facebook.com/xspanish/" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.5H7.4V14h2.7v8h3.4z"/>
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com/xspanishmens" target="_blank" rel="noopener" aria-label="Twitter / X">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M18.244 3H21l-6.52 7.45L22 21h-6.83l-4.79-6.27L4.8 21H2l7-8L1.5 3h6.99l4.34 5.74L18.244 3zm-1.2 16.2h1.52L7.04 4.7H5.4l11.644 14.5z"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.5H7.4V14h2.7v8h3.4z"/></svg>
                     </a>
                     <a href="https://wa.me/918089838365" target="_blank" rel="noopener" aria-label="WhatsApp">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.99-1.4.25-.69.25-1.27.17-1.4-.07-.13-.27-.2-.57-.35zM12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.27 4.84L2 22l5.32-1.39A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.99-1.4.25-.69.25-1.27.17-1.4-.07-.13-.27-.2-.57-.35zM12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.27 4.84L2 22l5.32-1.39A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@xspanish" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.15c-.4.05-1.25.05-2 .85-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.2 1.4.8 2c.75.8 1.75.75 2.2.85 1.6.15 6.8.2 6.8.2s4 0 6.8-.2c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.9 14.1V8.6l5.15 2.75-5.15 2.75z"/></svg>
                     </a>
                 </div>
             </div>
 
-            <div class="footer-section">
+            <div>
                 <h4>Shop</h4>
-                <ul>
-                    <li><a href="#collections">Collections</a></li>
-                    <li><a href="#shop-section">Featured Products</a></li>
-                    <li><a href="#brands">Brands</a></li>
-                    <li><a href="#">Gift Cards</a></li>
+                <ul class="footer__links">
+                    <li><a href="#new">New Arrivals</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#collection-shirts">Shirts</a></li>
+                    <li><a href="#collection-ethnic">Ethnic</a></li>
+                    <li><a href="#collection-casual">Casual</a></li>
                 </ul>
             </div>
 
-            <div class="footer-section">
+            <div>
                 <h4>Company</h4>
-                <ul>
+                <ul class="footer__links">
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="#outlets">Store Locator</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Sustainability</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Help</h4>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Shipping &amp; Returns</a></li>
-                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#lookbook">Lookbook</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-        </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 X SPANISH. All rights reserved.</p>
-            <p>Crafted with <i class="fas fa-heart"></i> in Kozhikode, Kerala.</p>
-        </div>
-    </footer>
-
-    <!-- Floating Action Buttons -->
-    <a href="https://wa.me/918089838365" class="fab whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <button class="fab back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Cart Drawer -->
-    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
-        <div class="cart-head">
-            <h3>Your Bag</h3>
-            <button class="close-cart" id="closeCart" aria-label="Close">&times;</button>
-        </div>
-        <div class="cart-body" id="cartBody">
-            <div class="cart-empty">
-                <i class="fas fa-shopping-bag"></i>
-                <p>Your bag is empty.</p>
-                <a href="#shop-section" class="btn btn-primary btn-sm" id="cartShopNow">Shop now</a>
+            <div>
+                <h4>Help</h4>
+                <ul class="footer__links">
+                    <li><a href="#contact">Track Order</a></li>
+                    <li><a href="#contact">Exchange &amp; Returns</a></li>
+                    <li><a href="#contact">Shipping Policy</a></li>
+                    <li><a href="#contact">Size Guide</a></li>
+                    <li><a href="#contact">FAQ</a></li>
+                </ul>
             </div>
         </div>
-        <div class="cart-foot" id="cartFoot" hidden>
-            <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div>
-            <button class="btn btn-primary btn-block">Checkout</button>
-        </div>
-    </aside>
-    <div class="overlay" id="overlay"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="script.js"></script>
+        <div class="footer__bottom">
+            <p>&copy; 2026 X SPANISH. All rights reserved.</p>
+            <div class="footer__pay">
+                <span>UPI</span><span>Visa</span><span>Mastercard</span><span>Cash</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== Quick view ===== -->
+<div class="modal" id="quickView" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Product quick view">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__box">
+        <button class="modal__close" data-close-modal aria-label="Close">&times;</button>
+        <div class="modal__media"><img id="qvImage" alt=""></div>
+        <div class="modal__body">
+            <p class="modal__brand" id="qvBrand"></p>
+            <h2 class="modal__title" id="qvName"></h2>
+            <p class="modal__price" id="qvPrice"></p>
+
+            <div class="option-group">
+                <h4>Colour</h4>
+                <div class="swatches" id="qvSwatches">
+                    <button class="swatch is-active" data-color="Black" style="background:#1c1c1c" aria-label="Black"></button>
+                    <button class="swatch" data-color="Navy" style="background:#26364f" aria-label="Navy"></button>
+                    <button class="swatch" data-color="Beige" style="background:#d8cbb5" aria-label="Beige"></button>
+                    <button class="swatch" data-color="Olive" style="background:#5c6247" aria-label="Olive"></button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <h4>Size</h4>
+                <div class="sizes" id="qvSizes">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn is-active">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                    <button class="size-btn">XXL</button>
+                </div>
+            </div>
+
+            <div class="qty-row">
+                <div class="qty">
+                    <button id="qtyMinus" aria-label="Decrease quantity">&minus;</button>
+                    <input type="number" id="qtyInput" value="1" min="1" aria-label="Quantity">
+                    <button id="qtyPlus" aria-label="Increase quantity">+</button>
+                </div>
+                <button class="btn btn--block" id="addToCart">Add to Bag</button>
+            </div>
+
+            <ul class="modal__meta">
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg> Free shipping over &#8377;1,499</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg> 7-day easy exchange</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg> 100% authentic brands</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ===== Cart drawer ===== -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping bag">
+    <div class="cart-drawer__head">
+        <h3>Your Bag</h3>
+        <button class="cart-drawer__close" id="cartClose" aria-label="Close bag">&times;</button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody"></div>
+    <div class="cart-drawer__foot" id="cartFoot" hidden>
+        <div class="cart-total"><span>Subtotal</span><strong id="cartTotal">&#8377;0</strong></div>
+        <a class="btn btn--block" href="https://wa.me/918089838365" target="_blank" rel="noopener">Checkout on WhatsApp</a>
+        <p class="cart-note">Taxes included. Shipping calculated at checkout.</p>
+    </div>
+</aside>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== Floating ===== -->
+<a href="https://wa.me/918089838365" class="fab fab--whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.99-1.4.25-.69.25-1.27.17-1.4-.07-.13-.27-.2-.57-.35zM12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.27 4.84L2 22l5.32-1.39A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</a>
+<button class="fab fab--top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,208 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — X SPANISH</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .about-hero {
-            height: 60vh;
-            min-height: 420px;
-            background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)),
-                        url('https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1600&auto=format&fit=crop&q=80') center/cover;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — X SPANISH</title>
+<meta name="description" content="X SPANISH has been dressing the men of Kozhikode since 2009, with outlets at Feroke and Ramanattukara.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="style.css">
+<style>
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+    }
+
+    .value-card {
+        border: 1px solid var(--border-light);
+        padding: 34px 26px;
+        transition: border-color .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .value-card:hover {
+        border-color: var(--text);
+        transform: translateY(-4px);
+    }
+
+    .value-card svg {
+        width: 26px;
+        height: 26px;
+        stroke: var(--text);
+        fill: none;
+        stroke-width: 1.4;
+        margin-bottom: 18px;
+    }
+
+    .value-card h3 {
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .value-card p {
+        color: var(--text-muted);
+        font-size: 14px;
+    }
+
+    .timeline {
+        max-width: 860px;
+        margin: 0 auto;
+    }
+
+    .timeline-item {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 34px;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .timeline-item:last-child {
+        border-bottom: none;
+    }
+
+    .timeline-year {
+        font-size: 26px;
+        letter-spacing: 0.06em;
+        color: var(--text-light);
+    }
+
+    .timeline-body h3 {
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .timeline-body p {
+        color: var(--text-muted);
+    }
+
+    @media (max-width: 1024px) {
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
-        .about-hero h1 { font-size: clamp(48px, 7vw, 88px); }
-        .about-hero p { color: rgba(255,255,255,.85); max-width: 620px; margin: 14px auto 0; }
-        .values { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; margin-top: 50px; }
-        .value-card { padding: 36px 28px; background: var(--bg-soft); border-radius: var(--radius); transition: var(--t); }
-        .value-card:hover { background: #fff; box-shadow: var(--shadow-md); transform: translateY(-4px); }
-        .value-card i { font-size: 28px; color: var(--accent); margin-bottom: 18px; }
-        .value-card h3 { font-size: 22px; margin-bottom: 10px; }
-        .value-card p { color: var(--ink-soft); font-size: 14px; }
-        .timeline { padding: 100px 40px; background: var(--bg-soft); }
-        .timeline-inner { max-width: 900px; margin: 0 auto; }
-        .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 30px; padding: 30px 0; border-bottom: 1px solid var(--line); }
-        .timeline-item:last-child { border-bottom: none; }
-        .timeline-year { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: var(--accent); }
-        .timeline-content h3 { font-size: 22px; margin-bottom: 8px; }
-        .timeline-content p { color: var(--ink-soft); }
-        @media (max-width: 600px) {
-            .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    @media (max-width: 600px) {
+        .values-grid {
+            grid-template-columns: 1fr;
         }
-    </style>
+
+        .timeline-item {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+    }
+</style>
 </head>
 <body>
 
-    <div class="announcement-bar">
-        <i class="fas fa-store"></i> Visit our stores at Feroke &amp; Ramanattukara · Open 10:00 AM – 9:30 PM
-    </div>
+<!-- ===== Announcement ===== -->
+<div class="announcement" id="announcement">
+    <span>Visit us at Feroke &amp; Ramanattukara</span>
+    <span>Open daily 10:00 AM – 9:30 PM</span>
+</div>
 
-    <nav id="mainNav">
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="logo.jpg" alt="X SPANISH"></a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#collections">Collections</a></li>
-                <li><a href="index.html#shop-section">Shop</a></li>
-                <li><a href="index.html#brands">Brands</a></li>
-                <li><a href="index.html#outlets">Outlets</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="index.html#shop-section" class="icon-btn" aria-label="Search"><i class="fas fa-search"></i></a>
-                <a href="#" class="icon-btn" aria-label="Wishlist"><i class="far fa-heart"></i></a>
-                <a href="index.html" class="icon-btn cart-icon" aria-label="Cart">
-                    <i class="fas fa-shopping-bag"></i><span class="cart-count">0</span>
-                </a>
+<!-- ===== Header ===== -->
+<header class="header header--static is-below-announcement is-solid" id="header">
+    <div class="header__inner">
+
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="header__nav" aria-label="Primary">
+            <div class="nav__item">
+                <a href="index.html#categories" class="nav__link">Shop</a>
+                <div class="nav__dropdown">
+                    <a href="index.html#categories">Shirts</a>
+                    <a href="index.html#categories">T-Shirts</a>
+                    <a href="index.html#categories">Jeans</a>
+                    <a href="index.html#categories">Trousers</a>
+                    <a href="index.html#categories">Ethnic</a>
+                    <a href="index.html#categories">Accessories</a>
+                </div>
             </div>
-        </div>
-    </nav>
+            <a href="index.html#new" class="nav__link">New In</a>
+            <a href="about.html" class="nav__link is-active">About</a>
+            <a href="index.html#outlets" class="nav__link">Outlets</a>
+            <a href="index.html#contact" class="nav__link">Contact</a>
+        </nav>
 
-    <header class="about-hero">
-        <div data-aos="fade-up">
-            <p class="hero-eyebrow">Our Story</p>
-            <h1>About <em>X Spanish</em></h1>
-            <p>Dressing the men of Kozhikode with intention, fit and feeling — since 2009.</p>
-        </div>
-    </header>
+        <a href="index.html" class="header__logo" aria-label="X SPANISH home">
+                <img class="logo-light" src="logo-light.png" alt="X SPANISH">
+                <img class="logo-dark" src="logo-dark.png" alt="X SPANISH">
+            </a>
 
-    <section class="story" style="margin-top: 0;">
-        <div class="story-image" data-aos="fade-right" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&auto=format&fit=crop&q=80');"></div>
-        <div class="story-content" data-aos="fade-left">
-            <p class="eyebrow">Who we are</p>
-            <h2>Menswear, the way it should <em>feel</em></h2>
-            <p>X Spanish opened its doors in 2009 in the heart of Feroke with a single goal — to make great menswear feel personal again. No piles of clothes you have to dig through. No salespeople reading from a script. Just a team that genuinely loves clothes and wants to find the right fit for you.</p>
-            <p>Today we run two stores — Feroke and Ramanattukara — and stock a carefully chosen line-up of brands. From everyday essentials to wedding-day showstoppers, we've got the rack you'll actually want to shop from.</p>
+        <div class="header__actions">
+            <a href="index.html" class="icon-btn" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            </a>
+            <a href="index.html#contact" class="icon-btn" aria-label="Account">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+            </a>
+            <a href="index.html" class="icon-btn" aria-label="Cart">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 14H7L6 7Z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+            </a>
         </div>
-    </section>
+    </div>
+</header>
 
-    <section class="values">
-        <div class="section-head">
-            <p class="eyebrow">What we stand for</p>
-            <h2>Our Values</h2>
+<!-- ===== Mobile nav ===== -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <div class="mobile-nav__head">
+        <img src="logo-dark.png" alt="X SPANISH">
+        <button class="icon-btn" id="mobileNavClose" aria-label="Close menu" style="font-size:26px;line-height:1">&times;</button>
+    </div>
+    <ul class="mobile-nav__list">
+        <li><a href="index.html#categories">Shop</a></li>
+        <li><a href="index.html#new">New In</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#lookbook">Lookbook</a></li>
+        <li><a href="index.html#outlets">Outlets</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__foot">
+        <a href="tel:+918089838365">+91 80898 38365</a>
+        <a href="mailto:fashion@xspanish.in">fashion@xspanish.in</a>
+    </div>
+</nav>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== Page hero ===== -->
+<section class="page-hero">
+    <div class="container">
+        <p class="section-eyebrow">Our Story</p>
+        <h1>About X Spanish</h1>
+        <p>Dressing the men of Kozhikode with intention, fit and feeling — since 2009.</p>
+    </div>
+</section>
+
+<!-- ===== Story ===== -->
+<section class="story">
+    <div class="story__media" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&auto=format&fit=crop&q=80')"></div>
+    <div class="story__body">
+        <p class="section-eyebrow">Who We Are</p>
+        <h2>Menswear The Way It Should Feel</h2>
+        <p>X Spanish opened its doors in 2009 in the heart of Feroke with a single goal — to make great menswear feel personal again. No piles of clothes to dig through. No salespeople reading from a script. Just a team that genuinely loves clothes and wants to find the right fit for you.</p>
+        <p>Today we run two stores — Feroke and Ramanattukara — and stock a carefully chosen line-up of brands. From everyday essentials to wedding-day showstoppers, we've built the rack you'll actually want to shop from.</p>
+        <div class="stats">
+            <div class="stat"><strong>15+</strong><span>Years</span></div>
+            <div class="stat"><strong>2</strong><span>Outlets</span></div>
+            <div class="stat"><strong>20+</strong><span>Brands</span></div>
+            <div class="stat"><strong>50k+</strong><span>Customers</span></div>
         </div>
-        <div class="values-grid">
-            <div class="value-card" data-aos="fade-up">
-                <i class="fas fa-tshirt"></i>
+    </div>
+</section>
+
+<!-- ===== Values ===== -->
+<section class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">What We Stand For</p>
+            <h2 class="section-title">Our Values</h2>
+        </div>
+
+        <div class="values-grid reveal">
+            <div class="value-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3 4 6v5h3v10h10V11h3V6l-5-3a3 3 0 0 1-6 0Z"/></svg>
                 <h3>Quality First</h3>
                 <p>Every piece on our racks is chosen for fabric, fit and finish — not just for what's trending.</p>
             </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-handshake"></i>
+            <div class="value-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 12 3 3 5-5"/><circle cx="12" cy="12" r="9"/></svg>
                 <h3>Personal Service</h3>
                 <p>Our stylists actually know their stuff. Tell us the occasion — we'll handle the rest.</p>
             </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-shield-alt"></i>
+            <div class="value-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
                 <h3>100% Authentic</h3>
                 <p>Direct partnerships with every brand we carry. No knockoffs, no surprises.</p>
             </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-heart"></i>
-                <h3>Local at Heart</h3>
+            <div class="value-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-7-9.4A3.9 3.9 0 0 1 12 9a3.9 3.9 0 0 1 7 2.6C19 16.4 12 21 12 21Z"/></svg>
+                <h3>Local At Heart</h3>
                 <p>Born in Feroke. Grown in Kozhikode. Proudly Kerala-rooted, globally inspired.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="timeline">
-        <div class="section-head">
-            <p class="eyebrow">Our Journey</p>
-            <h2>From One Store to a Family</h2>
+<!-- ===== Timeline ===== -->
+<section class="section" style="background:var(--bg-alt)">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="section-eyebrow">Our Journey</p>
+            <h2 class="section-title">From One Store To A Family</h2>
         </div>
-        <div class="timeline-inner">
-            <div class="timeline-item" data-aos="fade-up">
+
+        <div class="timeline reveal">
+            <div class="timeline-item">
                 <div class="timeline-year">2009</div>
-                <div class="timeline-content">
+                <div class="timeline-body">
                     <h3>The First Store</h3>
                     <p>X Spanish opens its doors in Feroke — a single rack, a clear vision, and a lot of late nights.</p>
                 </div>
             </div>
-            <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-item">
                 <div class="timeline-year">2014</div>
-                <div class="timeline-content">
+                <div class="timeline-body">
                     <h3>Brand Partnerships</h3>
                     <p>We start direct partnerships with national brands, building the curated roster customers know us for today.</p>
                 </div>
             </div>
-            <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-item">
                 <div class="timeline-year">2018</div>
-                <div class="timeline-content">
+                <div class="timeline-body">
                     <h3>Ramanattukara Flagship</h3>
-                    <p>Our second store opens at Ramanattukara — bigger floor, full ethnic section, and a dedicated styling lounge.</p>
+                    <p>Our second store opens at Ramanattukara — bigger floor, a full ethnic section, and a dedicated styling lounge.</p>
                 </div>
             </div>
-            <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-item">
                 <div class="timeline-year">2024</div>
-                <div class="timeline-content">
+                <div class="timeline-body">
                     <h3>Online &amp; Beyond</h3>
                     <p>Bringing the X Spanish experience online so you can browse from anywhere — with fittings still happening in store.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="index.html" class="logo logo-light"><img src="logo.jpg" alt="X SPANISH"></a>
-                <p>Premium men's fashion store, dressing the men of Kozhikode since 2009.</p>
+<!-- ===== Banner ===== -->
+<section class="banner" style="background-image:url('https://images.unsplash.com/photo-1516826957135-700dedea698c?w=1920&auto=format&fit=crop&q=80')">
+    <div class="banner__inner">
+        <h2 class="banner__title">Come See Us</h2>
+        <p class="banner__text">Two outlets in Kozhikode, open every day. Bring the occasion — we'll find the fit.</p>
+        <a href="index.html#outlets" class="btn btn--light">Find An Outlet</a>
+    </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo"><img src="logo-light.png" alt="X SPANISH"></div>
+                <p class="footer__about">Premium menswear, curated and fitted in store. Dressing the men of Kozhikode since 2009.</p>
                 <div class="socials">
-                    <a href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/xspanish/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/xspanishmens" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/x.spanish_/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/xspanish/" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.5H7.4V14h2.7v8h3.4z"/></svg>
+                    </a>
+                    <a href="https://wa.me/918089838365" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.99-1.4.25-.69.25-1.27.17-1.4-.07-.13-.27-.2-.57-.35zM12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.27 4.84L2 22l5.32-1.39A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                    </a>
                 </div>
             </div>
-            <div class="footer-section">
+
+            <div>
                 <h4>Shop</h4>
-                <ul>
-                    <li><a href="index.html#collections">Collections</a></li>
-                    <li><a href="index.html#brands">Brands</a></li>
+                <ul class="footer__links">
+                    <li><a href="index.html#new">New Arrivals</a></li>
+                    <li><a href="index.html#categories">Categories</a></li>
+                    <li><a href="index.html#collection-shirts">Shirts</a></li>
+                    <li><a href="index.html#collection-ethnic">Ethnic</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
+
+            <div>
                 <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#outlets">Stores</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Help</h4>
-                <ul>
+                <ul class="footer__links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#outlets">Store Locator</a></li>
+                    <li><a href="index.html#lookbook">Lookbook</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 X SPANISH. All rights reserved.</p>
-            <p>Crafted with <i class="fas fa-heart"></i> in Kozhikode, Kerala.</p>
-        </div>
-    </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true, offset: 60 });
-        // Mobile menu
-        const burger = document.getElementById('hamburger');
-        const links = document.getElementById('navLinks');
-        burger?.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            links.classList.toggle('open');
-        });
-        // Nav shadow on scroll
-        const nav = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
-    </script>
+            <div>
+                <h4>Help</h4>
+                <ul class="footer__links">
+                    <li><a href="index.html#contact">Track Order</a></li>
+                    <li><a href="index.html#contact">Exchange &amp; Returns</a></li>
+                    <li><a href="index.html#contact">Shipping Policy</a></li>
+                    <li><a href="index.html#contact">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p>&copy; 2026 X SPANISH. All rights reserved.</p>
+            <div class="footer__pay">
+                <span>UPI</span><span>Visa</span><span>Mastercard</span><span>Cash</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/918089838365" class="fab fab--whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.99-1.4.25-.69.25-1.27.17-1.4-.07-.13-.27-.2-.57-.35zM12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.27 4.84L2 22l5.32-1.39A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</a>
+<button class="fab fab--top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+
+<script src="script.js"></script>
 </body>
 </html>
