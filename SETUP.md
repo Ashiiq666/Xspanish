@@ -47,6 +47,12 @@ products table, the image bucket, and the security rules.
 3. Copy the **anon public** key — a long string starting with `eyJ...`.
 4. Open `config.js` in this project and paste both in:
 
+> **Watch the URL.** The Data API page shows a REST endpoint ending in
+> `/rest/v1/`. `SUPABASE_URL` wants only the project base — everything up to
+> `.supabase.co`, with no path. The **Docs** tab on that same page shows the
+> right form next to `const supabaseUrl`. (Paste the longer one by mistake and
+> it's handled anyway, but the short form is correct.)
+
 ```js
 window.XS_CONFIG = {
     SUPABASE_URL: 'https://abcdefgh.supabase.co',

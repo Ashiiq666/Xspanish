@@ -10,7 +10,14 @@
     'use strict';
 
     const cfg = global.XS_CONFIG || {};
-    const URL_BASE = (cfg.SUPABASE_URL || '').replace(/\/+$/, '');
+
+    /* The dashboard surfaces the REST endpoint (".../rest/v1/") more
+       prominently than the bare project URL, so tolerate either — paths
+       are appended below and would otherwise be doubled up. */
+    const URL_BASE = (cfg.SUPABASE_URL || '')
+        .trim()
+        .replace(/\/+$/, '')
+        .replace(/\/(rest|storage|auth)\/v1$/, '');
     const ANON = cfg.SUPABASE_ANON_KEY || '';
     const BUCKET = cfg.STORAGE_BUCKET || 'product-images';
 
@@ -49,11 +56,18 @@
     }
 
     /* ---------- low level ---------- */
+
+    /* Legacy anon keys are JWTs the API can decode from an Authorization
+       header. Newer `sb_publishable_...` keys are not, and authenticate
+       through the apikey header alone — sending them as a bearer token
+       fails JWT parsing. Support both. */
+    const ANON_IS_JWT = /^eyJ/.test(ANON);
+
     function headers(extra, token) {
-        return Object.assign({
-            apikey: ANON,
-            Authorization: 'Bearer ' + (token || ANON),
-        }, extra || {});
+        const base = { apikey: ANON };
+        if (token) base.Authorization = 'Bearer ' + token;
+        else if (ANON_IS_JWT) base.Authorization = 'Bearer ' + ANON;
+        return Object.assign(base, extra || {});
     }
 
     async function readError(res, fallback) {

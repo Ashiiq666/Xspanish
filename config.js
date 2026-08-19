@@ -13,7 +13,13 @@
    ========================================================= */
 
 window.XS_CONFIG = {
+    // Project base only — no trailing path. The Data API page shows a REST
+    // endpoint ending in "/rest/v1/"; use the shorter form shown on its
+    // Docs tab next to `const supabaseUrl`.
     SUPABASE_URL: 'https://YOUR-PROJECT-REF.supabase.co',
+
+    // The key labelled "anon public" (starts with eyJ...), or a newer
+    // "sb_publishable_..." key. Both work.
     SUPABASE_ANON_KEY: 'YOUR-PUBLIC-ANON-KEY',
 
     STORAGE_BUCKET: 'product-images',
