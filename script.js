@@ -459,7 +459,9 @@ function initQuickView() {
         const trigger = e.target.closest('[data-quick]');
         if (trigger) {
             e.preventDefault();
-            openQuickView(Number(trigger.dataset.quick));
+            // Not Number() — Supabase ids are uuid strings, and coercing
+            // them yields NaN so the lookup below would never match.
+            openQuickView(trigger.dataset.quick);
         }
     });
 
@@ -509,7 +511,8 @@ function initQuickView() {
 }
 
 function openQuickView(id) {
-    const p = PRODUCTS.find(x => x.id === id);
+    // Compare as strings so numeric fallback ids and uuids both match.
+    const p = PRODUCTS.find(x => String(x.id) === String(id));
     if (!p) return;
     currentProduct = p;
 

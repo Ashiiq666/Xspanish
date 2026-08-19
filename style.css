@@ -921,6 +921,16 @@ h4 {
     opacity: 1;
 }
 
+/* Touch devices have no hover, so reveal-on-hover controls would never
+   be reachable. Show them permanently there instead. */
+@media (hover: none) {
+    .product-card__quick,
+    .product-card__wish {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 .product-card__wish svg {
     width: 16px;
     height: 16px;

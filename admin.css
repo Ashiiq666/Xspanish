@@ -140,11 +140,12 @@ select.input { cursor: pointer; }
 
 .setup-card, .login__card {
     width: 100%;
-    max-width: 420px;
+    max-width: 440px;
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 40px 34px;
+    border-radius: 8px;
+    padding: 48px 44px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, .05);
 }
 
 .setup-card h1 { font-size: 22px; margin-bottom: 14px; }
@@ -159,11 +160,24 @@ select.input { cursor: pointer; }
 
 /* ---------- Login ---------- */
 .login__card { text-align: center; }
-.login__logo { height: 46px; width: auto; margin: 0 auto 22px; }
-.login__card h1 { font-size: 20px; letter-spacing: .08em; text-transform: uppercase; }
-.login__sub { color: var(--muted); margin-bottom: 26px; font-size: 13px; }
-.login__card .field { text-align: left; margin-bottom: 16px; }
-.login__card .btn { margin-top: 6px; }
+.login__logo { height: 52px; width: auto; margin: 0 auto 26px; }
+.login__card h1 { font-size: 22px; letter-spacing: .1em; text-transform: uppercase; }
+.login__sub { color: var(--muted); margin-bottom: 32px; font-size: 14px; }
+.login__card .field { text-align: left; margin-bottom: 20px; }
+.login__card .btn { margin-top: 10px; }
+
+/* Comfortable touch targets on the sign-in screen */
+.login__card .input {
+    height: 48px;
+    padding: 0 14px;
+    font-size: 15px;
+}
+
+.btn--lg {
+    height: 48px;
+    font-size: 14px;
+    letter-spacing: .04em;
+}
 
 .field { display: block; }
 .field > span, .field__label {
@@ -553,4 +567,7 @@ select.input { cursor: pointer; }
 
     .uploader { flex-direction: column; }
     .modal { padding: 20px 12px; }
+
+    /* Reclaim horizontal room on narrow phones */
+    .setup-card, .login__card { padding: 36px 24px; }
 }
