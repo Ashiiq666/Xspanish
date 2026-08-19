@@ -6,8 +6,12 @@
    Catalogue
    Each product may belong to several merchandising groups
    via `groups` (new | best | shirts | ethnic | casual).
+
+   These entries are the fallback shown before Supabase responds,
+   and if it is unreachable or not configured yet. Once products
+   exist in the dashboard they replace this list entirely.
    --------------------------------------------------------- */
-const PRODUCTS = [
+let PRODUCTS = [
     { id: 1,  name: 'Linen Cuban-Collar Shirt',  brand: 'Heniis',         price: 1899, oldPrice: 2499, badge: 'New',  cat: 'shirts',
       groups: ['new', 'shirts', 'casual'],
       image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80' },
@@ -75,6 +79,14 @@ const PRODUCTS = [
 
 const SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
 
+/* Used when a product has no colours set in the dashboard. */
+const DEFAULT_COLORS = [
+    { name: 'Black', hex: '#1c1c1c' },
+    { name: 'Navy',  hex: '#26364f' },
+    { name: 'Beige', hex: '#d8cbb5' },
+    { name: 'Olive', hex: '#5c6247' },
+];
+
 /* ---------- Helpers ---------- */
 const $  = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
@@ -104,7 +116,50 @@ document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initBackToTop();
     initNewsletter();
+
+    // Swap in the live catalogue once it arrives; the fallback is
+    // already on screen so there is nothing to wait for.
+    loadCatalogue();
 });
+
+/* =========================================================
+   Live catalogue (Supabase)
+   ========================================================= */
+
+/* Map a dashboard row onto the shape the storefront renders. */
+function fromRow(row) {
+    return {
+        id: row.id,
+        name: row.name,
+        brand: row.brand || '',
+        price: Number(row.price),
+        oldPrice: row.old_price != null ? Number(row.old_price) : null,
+        image: row.image_url || '',
+        cat: row.category,
+        groups: Array.isArray(row.collections) ? row.collections : [],
+        sizes: Array.isArray(row.sizes) && row.sizes.length ? row.sizes : SIZES,
+        colors: Array.isArray(row.colors) ? row.colors : [],
+        isNew: !!row.is_new,
+        offerTag: row.offer_tag || null,
+        inStock: row.in_stock !== false,
+    };
+}
+
+async function loadCatalogue() {
+    if (!window.XS_API || !window.XS_API.isConfigured()) return;
+
+    try {
+        const rows = await window.XS_API.listProducts();
+        if (!Array.isArray(rows) || !rows.length) return;   // keep fallback rather than emptying the page
+
+        PRODUCTS = rows.filter(r => r.in_stock !== false).map(fromRow);
+        renderCarousels();
+        initCarouselNav();
+    } catch (err) {
+        // Storefront stays on the fallback catalogue; nothing user-facing breaks.
+        console.warn('Live catalogue unavailable, using fallback.', err);
+    }
+}
 
 /* =========================================================
    Header — solid on scroll, drops the announcement offset
@@ -293,9 +348,19 @@ function initMarquee() {
    Product cards + carousels
    ========================================================= */
 function productCardHTML(p) {
-    const badge = p.badge
-        ? `<span class="product-card__badge${p.badge === 'Sale' ? ' product-card__badge--sale' : ''}">${escapeHtml(p.badge)}</span>`
-        : '';
+    /* An offer tag wins the prominent slot; "New" sits alongside it.
+       `badge` is the shape used by the built-in fallback entries. */
+    const badges = [];
+    if (p.offerTag) {
+        badges.push(`<span class="product-card__badge product-card__badge--sale">${escapeHtml(p.offerTag)}</span>`);
+    }
+    if (p.isNew) {
+        badges.push('<span class="product-card__badge product-card__badge--new">New</span>');
+    }
+    if (!badges.length && p.badge) {
+        badges.push(`<span class="product-card__badge${p.badge === 'Sale' ? ' product-card__badge--sale' : ''}">${escapeHtml(p.badge)}</span>`);
+    }
+    const badge = badges.length ? `<div class="product-card__badges">${badges.join('')}</div>` : '';
 
     const oldPrice = p.oldPrice ? `<del>${money(p.oldPrice)}</del>` : '';
 
@@ -453,6 +518,19 @@ function openQuickView(id) {
     $('#qvBrand').textContent = p.brand;
     $('#qvName').textContent = p.name;
     $('#qvPrice').innerHTML = money(p.price) + (p.oldPrice ? ` <del>${money(p.oldPrice)}</del>` : '');
+
+    /* Options come from the product itself so the dashboard controls them. */
+    const colors = (p.colors && p.colors.length) ? p.colors : DEFAULT_COLORS;
+    $('#qvSwatches').innerHTML = colors.map((c, i) => `
+        <button type="button" class="swatch${i === 0 ? ' is-active' : ''}"
+                data-color="${escapeHtml(c.name)}"
+                style="background:${escapeHtml(c.hex)}"
+                aria-label="${escapeHtml(c.name)}"></button>`).join('');
+
+    const sizes = (p.sizes && p.sizes.length) ? p.sizes : SIZES;
+    $('#qvSizes').innerHTML = sizes.map((s, i) =>
+        `<button type="button" class="size-btn${i === 0 ? ' is-active' : ''}">${escapeHtml(s)}</button>`
+    ).join('');
 
     $('#qtyInput').value = 1;
 
