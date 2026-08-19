@@ -622,7 +622,7 @@ function renderCart() {
 
 /* WhatsApp checkout: carry the order in the message so the customer
    doesn't have to retype it, and the shop gets the exact selection. */
-const WHATSAPP_NUMBER = '918089838365';
+const WHATSAPP_NUMBER = '919895838365';
 
 function updateCheckoutLink(total) {
     const link = $('#checkoutBtn');
