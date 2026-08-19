@@ -616,6 +616,29 @@ function renderCart() {
 
     $('#cartTotal').textContent = money(total);
     if (foot) foot.hidden = false;
+
+    updateCheckoutLink(total);
+}
+
+/* WhatsApp checkout: carry the order in the message so the customer
+   doesn't have to retype it, and the shop gets the exact selection. */
+const WHATSAPP_NUMBER = '918089838365';
+
+function updateCheckoutLink(total) {
+    const link = $('#checkoutBtn');
+    if (!link) return;
+
+    const lines = cart.map((l, i) =>
+        `${i + 1}. ${l.name}${l.brand ? ` (${l.brand})` : ''}\n` +
+        `   ${l.color} · Size ${l.size} × ${l.qty} — ${money(l.price * l.qty)}`
+    );
+
+    const message =
+        'Hi X SPANISH, I would like to order:\n\n' +
+        lines.join('\n\n') +
+        `\n\nSubtotal: ${money(total)}`;
+
+    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 function openCart() {
