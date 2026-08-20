@@ -40,6 +40,10 @@ The free tier (500MB database, 1GB images) is far more than this catalogue needs
 You should see "Success. No rows returned". That is correct — it created the
 products table, the image bucket, and the security rules.
 
+> **Already set up before styles existed?** Run `supabase/migration-add-style.sql`
+> the same way. It adds the style column without touching your products; they
+> keep working and simply appear under "All &lt;category&gt;" until you set styles.
+
 ## Step 3 — Copy your two keys into `config.js`
 
 1. In Supabase go to **Project Settings** (gear icon) → **Data API**.
@@ -105,6 +109,7 @@ Click **+ Add product** and fill in:
 | **Product name** | Required. Shown under the photo. |
 | **Brand** | Optional. |
 | **Category** | Shirts, T-Shirts, Jeans, Trousers, Ethnic, Accessories. |
+| **Style** | Optional, e.g. `Printed`, `Formal`, `Linen`. Groups the product on the category page. Pick a suggestion or type your own. |
 | **Price** | Required, in rupees. |
 | **Was price** | Optional. Set it to show a struck-through original price. Must be higher than the current price. |
 | **Available sizes** | Tap to toggle S / M / L / XL / XXL. |
@@ -114,6 +119,25 @@ Click **+ Add product** and fill in:
 | **Offer tag** | Free text, e.g. `20% OFF`. Shows as a red badge. Leave blank for none. |
 | **Show in these sections** | Which homepage carousels it appears in. |
 | **Sort order** | Lower numbers appear first. |
+
+### How browsing works
+
+Clicking a category on the homepage opens its **style** page, and clicking a
+style shows only those products:
+
+```
+Homepage  ->  Shirts  ->  Printed  ->  the printed shirts
+```
+
+Three rules keep this honest, so nothing ever advertises stock you don't have:
+
+- **Counts are real.** They're computed from live products, never typed in.
+- **Empty categories are hidden.** No products under Jeans means no Jeans card.
+- **Style cards appear only once used.** A style shows up the moment a product
+  is filed under it, and disappears when the last one is removed.
+
+Products with no style set are still reachable through an **All &lt;category&gt;**
+card, so nothing gets stranded.
 
 ### Where products appear
 

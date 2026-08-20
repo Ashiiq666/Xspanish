@@ -12,70 +12,74 @@
    exist in the dashboard they replace this list entirely.
    --------------------------------------------------------- */
 let PRODUCTS = [
-    { id: 1,  name: 'Linen Cuban-Collar Shirt',  brand: 'Heniis',         price: 1899, oldPrice: 2499, badge: 'New',  cat: 'shirts',
+    { id: 1, style: 'Linen',  name: 'Linen Cuban-Collar Shirt',  brand: 'Heniis',         price: 1899, oldPrice: 2499, badge: 'New',  cat: 'shirts',
       groups: ['new', 'shirts', 'casual'],
       image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 2,  name: 'Slim-Fit Oxford Shirt',     brand: 'Peter England',  price: 1599, oldPrice: null, badge: null,   cat: 'shirts',
+    { id: 2, style: 'Formal',  name: 'Slim-Fit Oxford Shirt',     brand: 'Peter England',  price: 1599, oldPrice: null, badge: null,   cat: 'shirts',
       groups: ['best', 'shirts'],
       image: 'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 3,  name: 'Printed Resort Shirt',      brand: 'North Republic', price: 1299, oldPrice: 1799, badge: 'Sale', cat: 'shirts',
+    { id: 3, style: 'Printed',  name: 'Printed Resort Shirt',      brand: 'North Republic', price: 1299, oldPrice: 1799, badge: 'Sale', cat: 'shirts',
       groups: ['new', 'shirts', 'casual'],
       image: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 4,  name: 'Premium Cotton Polo',       brand: 'Allen Solly',    price: 999,  oldPrice: null, badge: 'New',  cat: 'tshirts',
+    { id: 4, style: 'Polo',  name: 'Premium Cotton Polo',       brand: 'Allen Solly',    price: 999,  oldPrice: null, badge: 'New',  cat: 'tshirts',
       groups: ['new', 'casual'],
       image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 5,  name: 'Oversized Graphic Tee',     brand: 'Nelly',          price: 799,  oldPrice: 1199, badge: 'Sale', cat: 'tshirts',
+    { id: 5, style: 'Graphic',  name: 'Oversized Graphic Tee',     brand: 'Nelly',          price: 799,  oldPrice: 1199, badge: 'Sale', cat: 'tshirts',
       groups: ['best', 'casual'],
       image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 6,  name: 'Crew-Neck Henley',          brand: 'Heniis',         price: 899,  oldPrice: null, badge: null,   cat: 'tshirts',
+    { id: 6, style: 'Henley',  name: 'Crew-Neck Henley',          brand: 'Heniis',         price: 899,  oldPrice: null, badge: null,   cat: 'tshirts',
       groups: ['new', 'casual'],
       image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 7,  name: 'Distressed Slim Jeans',     brand: "Levi's",         price: 2299, oldPrice: 2999, badge: 'Sale', cat: 'jeans',
+    { id: 7, style: 'Distressed',  name: 'Distressed Slim Jeans',     brand: "Levi's",         price: 2299, oldPrice: 2999, badge: 'Sale', cat: 'jeans',
       groups: ['best', 'casual'],
       image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 8,  name: 'Tapered Dark-Wash Jeans',   brand: 'North Republic', price: 1899, oldPrice: null, badge: null,   cat: 'jeans',
+    { id: 8, style: 'Tapered',  name: 'Tapered Dark-Wash Jeans',   brand: 'North Republic', price: 1899, oldPrice: null, badge: null,   cat: 'jeans',
       groups: ['new', 'casual'],
       image: 'https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 9,  name: 'Ivory Silk Sherwani',       brand: 'Manyavar',       price: 8499, oldPrice: null, badge: 'New',  cat: 'ethnic',
+    { id: 9, style: 'Sherwani',  name: 'Ivory Silk Sherwani',       brand: 'Manyavar',       price: 8499, oldPrice: null, badge: 'New',  cat: 'ethnic',
       groups: ['new', 'ethnic'],
       image: 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 10, name: 'Embroidered Kurta Set',     brand: 'Heniis',         price: 2799, oldPrice: 3499, badge: 'Sale', cat: 'ethnic',
+    { id: 10, style: 'Kurta Set', name: 'Embroidered Kurta Set',     brand: 'Heniis',         price: 2799, oldPrice: 3499, badge: 'Sale', cat: 'ethnic',
       groups: ['best', 'ethnic'],
       image: 'https://images.unsplash.com/photo-1617886322207-6f504e7472c5?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 11, name: 'Tailored Wool Trousers',    brand: 'Van Heusen',     price: 2499, oldPrice: null, badge: null,   cat: 'trousers',
+    { id: 11, style: 'Formal', name: 'Tailored Wool Trousers',    brand: 'Van Heusen',     price: 2499, oldPrice: null, badge: null,   cat: 'trousers',
       groups: ['best'],
       image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 12, name: 'Heritage Plaid Overshirt',  brand: 'Allen Solly',    price: 2199, oldPrice: 2799, badge: 'Sale', cat: 'shirts',
+    { id: 12, style: 'Casual', name: 'Heritage Plaid Overshirt',  brand: 'Allen Solly',    price: 2199, oldPrice: 2799, badge: 'Sale', cat: 'shirts',
       groups: ['new', 'shirts', 'casual'],
       image: 'https://images.unsplash.com/photo-1564859228273-274232fdb516?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 13, name: 'Mandarin-Collar Kurta',     brand: 'Heniis',         price: 1699, oldPrice: null, badge: null,   cat: 'ethnic',
+    { id: 13, style: 'Kurta', name: 'Mandarin-Collar Kurta',     brand: 'Heniis',         price: 1699, oldPrice: null, badge: null,   cat: 'ethnic',
       groups: ['ethnic', 'new'],
       image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 14, name: 'Satin Evening Shirt',       brand: 'Nelly',          price: 2099, oldPrice: null, badge: 'New',  cat: 'shirts',
+    { id: 14, style: 'Ceremonial', name: 'Satin Evening Shirt',       brand: 'Nelly',          price: 2099, oldPrice: null, badge: 'New',  cat: 'shirts',
       groups: ['shirts', 'new'],
       image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 15, name: 'Washed Chino Trousers',     brand: 'Peter England',  price: 1499, oldPrice: 1899, badge: 'Sale', cat: 'trousers',
+    { id: 15, style: 'Chino', name: 'Washed Chino Trousers',     brand: 'Peter England',  price: 1499, oldPrice: 1899, badge: 'Sale', cat: 'trousers',
       groups: ['casual', 'best'],
       image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&auto=format&fit=crop&q=80' },
 
-    { id: 16, name: 'Banded-Collar Linen Shirt', brand: 'North Republic', price: 1799, oldPrice: null, badge: null,   cat: 'shirts',
+    { id: 16, style: 'Linen', name: 'Banded-Collar Linen Shirt', brand: 'North Republic', price: 1799, oldPrice: null, badge: null,   cat: 'shirts',
       groups: ['shirts', 'casual'],
       image: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=800&auto=format&fit=crop&q=80' },
 ];
+
+/* `let` at module scope is not exposed on window, and shop.js runs in
+   its own IIFE — publish the catalogue explicitly so it can read it. */
+window.PRODUCTS = PRODUCTS;
 
 const SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
 
@@ -108,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSearch();
     initHero();
     initMarquee();
+    renderCategories();
     renderCarousels();
     initTabs();
     initCarouselNav();
@@ -118,8 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initNewsletter();
 
     // Swap in the live catalogue once it arrives; the fallback is
-    // already on screen so there is nothing to wait for.
-    loadCatalogue();
+    // already on screen so there is nothing to wait for. shop.js awaits
+    // this same promise instead of issuing a second request.
+    window.XS_CATALOGUE_READY = loadCatalogue();
 });
 
 /* =========================================================
@@ -136,6 +142,7 @@ function fromRow(row) {
         oldPrice: row.old_price != null ? Number(row.old_price) : null,
         image: row.image_url || '',
         cat: row.category,
+        style: (row.style || '').trim(),
         groups: Array.isArray(row.collections) ? row.collections : [],
         sizes: Array.isArray(row.sizes) && row.sizes.length ? row.sizes : SIZES,
         colors: Array.isArray(row.colors) ? row.colors : [],
@@ -153,6 +160,8 @@ async function loadCatalogue() {
         if (!Array.isArray(rows) || !rows.length) return;   // keep fallback rather than emptying the page
 
         PRODUCTS = rows.filter(r => r.in_stock !== false).map(fromRow);
+        window.PRODUCTS = PRODUCTS;
+        renderCategories();
         renderCarousels();
         initCarouselNav();
     } catch (err) {
@@ -381,6 +390,33 @@ function productCardHTML(p) {
             <p class="product-card__price">${money(p.price)} ${oldPrice}</p>
         </div>
     </article>`;
+}
+
+/* Category mosaic, built from live stock: counts are real, and a
+   category with nothing in it is left out rather than shown empty.
+   First two cards take the large mosaic cells. */
+function renderCategories() {
+    const grid = $('#categoryGrid');
+    if (!grid || !window.XS_CATALOG) return;
+
+    const cats = window.XS_CATALOG
+        .categoriesWithCounts(PRODUCTS.filter(p => p.inStock !== false))
+        .filter(c => c.count > 0);
+
+    if (!cats.length) {
+        grid.closest('section').hidden = true;
+        return;
+    }
+    grid.closest('section').hidden = false;
+
+    grid.innerHTML = cats.map((c, i) => `
+        <a href="${window.XS_CATALOG.shopUrl(c.key)}" class="category-card${i < 2 ? ' category-card--lg' : ''}">
+            <img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.label)}" loading="lazy">
+            <div class="category-card__label">
+                <h3>${escapeHtml(c.label)}</h3>
+                <span>${c.count} ${c.count === 1 ? 'item' : 'items'}</span>
+            </div>
+        </a>`).join('');
 }
 
 function renderCarousels() {

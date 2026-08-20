@@ -1064,6 +1064,138 @@ h4 {
 }
 
 /* =========================================================
+   Style cards (shop.html)
+   ========================================================= */
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.style-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-alt);
+}
+
+.style-card__media {
+    display: block;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.style-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s var(--ease);
+}
+
+.style-card:hover .style-card__media img {
+    transform: scale(1.06);
+}
+
+.style-card__blank {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-alt);
+}
+
+.style-card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, .55) 100%);
+}
+
+.style-card__label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.style-card__title {
+    display: block;
+    font-size: 18px;
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+}
+
+.style-card__count {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    opacity: .85;
+}
+
+/* =========================================================
+   Product grid (shop.html) — same card metrics as the carousel
+   ========================================================= */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 76px 48px;
+}
+
+/* =========================================================
+   Breadcrumbs + empty state
+   ========================================================= */
+.crumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.crumbs a:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.crumbs span {
+    opacity: .5;
+}
+
+.crumbs em {
+    font-style: normal;
+    color: var(--text);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state p {
+    color: var(--text-muted);
+    margin-bottom: 22px;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+}
+
+/* =========================================================
    Full-bleed banner / video
    ========================================================= */
 .banner {
@@ -2023,6 +2155,15 @@ h4 {
         gap: 16px;
     }
 
+    .style-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px 32px;
+    }
+
     .category-grid {
         grid-auto-rows: 240px;
     }
@@ -2100,6 +2241,24 @@ h4 {
 
     .media-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .style-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 34px 20px;
+    }
+
+    .style-card__title {
+        font-size: 15px;
+    }
+
+    .style-card__count {
+        font-size: 11px;
     }
 
     .stats {

@@ -190,6 +190,7 @@ select.input { cursor: pointer; }
 }
 .field__label em { color: var(--danger); font-style: normal; }
 .field--narrow { max-width: 200px; }
+.field--half { max-width: 340px; }
 
 /* ---------- Topbar ---------- */
 .topbar {

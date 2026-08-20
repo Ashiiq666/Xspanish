@@ -176,6 +176,15 @@
                 </label>
             </div>
 
+            <!-- Style -->
+            <label class="field field--half">
+                <span class="field__label">Style</span>
+                <input type="text" class="input" id="fStyle" list="styleOptions"
+                       placeholder="e.g. Printed" autocomplete="off" maxlength="40">
+                <datalist id="styleOptions"></datalist>
+                <span class="hint">Groups this product on the category page &mdash; pick a suggestion or type your own. Left blank, it still appears under the category.</span>
+            </label>
+
             <!-- Sizes -->
             <div class="field">
                 <span class="field__label">Available sizes</span>
@@ -275,6 +284,7 @@
 
 <script src="config.js"></script>
 <script src="api.js"></script>
+<script src="catalog.js"></script>
 <script src="admin.js"></script>
 </body>
 </html>

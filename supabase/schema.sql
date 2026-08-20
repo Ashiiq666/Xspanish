@@ -12,6 +12,7 @@ create table if not exists public.products (
     name         text        not null,
     brand        text,
     category     text        not null default 'shirts',   -- shirts | tshirts | jeans | trousers | ethnic | accessories
+    style        text,                                    -- e.g. Formal, Printed, Linen — drives the style pages
 
     price        numeric(10,2) not null check (price >= 0),
     old_price    numeric(10,2)              check (old_price is null or old_price >= 0),
@@ -36,6 +37,7 @@ create table if not exists public.products (
 -- Storefront reads filter on these
 create index if not exists products_sort_idx        on public.products (sort_order, created_at desc);
 create index if not exists products_category_idx    on public.products (category);
+create index if not exists products_category_style_idx on public.products (category, style);
 create index if not exists products_collections_idx on public.products using gin (collections);
 
 -- Keep updated_at honest

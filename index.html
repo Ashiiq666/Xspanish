@@ -187,33 +187,9 @@
             <h2 class="section-title">Our Categories</h2>
         </div>
 
-        <!-- 12-col mosaic: two feature cells, then four half-height cells -->
-        <div class="category-grid reveal">
-            <a href="#new" class="category-card category-card--lg">
-                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&auto=format&fit=crop&q=80" alt="Shirts" loading="lazy">
-                <div class="category-card__label"><h3>Shirts</h3><span>12 styles</span></div>
-            </a>
-            <a href="#new" class="category-card category-card--lg">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&auto=format&fit=crop&q=80" alt="T-Shirts" loading="lazy">
-                <div class="category-card__label"><h3>T-Shirts</h3><span>18 styles</span></div>
-            </a>
-            <a href="#new" class="category-card">
-                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=700&auto=format&fit=crop&q=80" alt="Jeans" loading="lazy">
-                <div class="category-card__label"><h3>Jeans</h3><span>9 styles</span></div>
-            </a>
-            <a href="#new" class="category-card">
-                <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=700&auto=format&fit=crop&q=80" alt="Trousers" loading="lazy">
-                <div class="category-card__label"><h3>Trousers</h3><span>7 styles</span></div>
-            </a>
-            <a href="#new" class="category-card">
-                <img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=700&auto=format&fit=crop&q=80" alt="Ethnic" loading="lazy">
-                <div class="category-card__label"><h3>Ethnic</h3><span>11 styles</span></div>
-            </a>
-            <a href="#new" class="category-card">
-                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=700&auto=format&fit=crop&q=80" alt="Accessories" loading="lazy">
-                <div class="category-card__label"><h3>Accessories</h3><span>15 styles</span></div>
-            </a>
-        </div>
+        <!-- 12-col mosaic, rendered from real stock: categories with no
+             products are omitted and counts reflect what is actually live -->
+        <div class="category-grid reveal" id="categoryGrid"></div>
     </div>
 </section>
 
@@ -565,6 +541,7 @@
 
 <script src="config.js"></script>
 <script src="api.js"></script>
+<script src="catalog.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

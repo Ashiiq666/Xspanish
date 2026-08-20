@@ -22,6 +22,10 @@
         { name: 'Blue',   hex: '#3f6fa8' },
     ];
 
+    /* Style suggestions come from the shared taxonomy so the dashboard,
+       storefront and style pages never drift apart. */
+    const STYLE_SUGGESTIONS = (window.XS_CATALOG && window.XS_CATALOG.STYLES) || {};
+
     const CATEGORY_LABELS = {
         shirts: 'Shirts', tshirts: 'T-Shirts', jeans: 'Jeans',
         trousers: 'Trousers', ethnic: 'Ethnic', accessories: 'Accessories',
@@ -195,7 +199,10 @@
                     <div class="cell-name">${esc(p.name)}</div>
                     ${p.brand ? `<div class="cell-brand">${esc(p.brand)}</div>` : ''}
                 </td>
-                <td>${esc(CATEGORY_LABELS[p.category] || p.category)}</td>
+                <td>
+                    ${esc(CATEGORY_LABELS[p.category] || p.category)}
+                    ${p.style ? `<div class="cell-brand">${esc(p.style)}</div>` : ''}
+                </td>
                 <td>
                     <span class="price-now">${money(p.price)}</span>
                     ${p.old_price ? `<span class="price-was">${money(p.old_price)}</span>` : ''}
@@ -232,6 +239,8 @@
             if (e.key === 'Enter') { e.preventDefault(); addCustomColor(); }
         });
 
+        $('#fCategory').addEventListener('change', refreshStyleOptions);
+
         $('#productForm').addEventListener('submit', saveProduct);
         $('#deleteBtn').addEventListener('click', () => askDelete(editingId));
 
@@ -262,6 +271,8 @@
         $('#fIsNew').checked = p ? !!p.is_new : false;
         $('#fInStock').checked = p ? !!p.in_stock : true;
         $('#fOfferTag').value = p ? (p.offer_tag || '') : '';
+        $('#fStyle').value = p ? (p.style || '') : '';
+        refreshStyleOptions();
         $('#fSortOrder').value = p ? p.sort_order : 0;
 
         setChecked('#sizeChips', p ? p.sizes : ['S', 'M', 'L', 'XL']);
@@ -294,6 +305,11 @@
 
     function getChecked(scope) {
         return $$(`${scope} input[type="checkbox"]`).filter(cb => cb.checked).map(cb => cb.value);
+    }
+
+    function refreshStyleOptions() {
+        const list = STYLE_SUGGESTIONS[$('#fCategory').value] || [];
+        $('#styleOptions').innerHTML = list.map(v => `<option value="${esc(v)}">`).join('');
     }
 
     /* ---------- colours ---------- */
@@ -418,6 +434,7 @@
             name: $('#fName').value.trim(),
             brand: $('#fBrand').value.trim() || null,
             category: $('#fCategory').value,
+            style: $('#fStyle').value.trim() || null,
             price,
             old_price: oldPrice,
             sizes: getChecked('#sizeChips'),
