@@ -545,6 +545,15 @@ select.input { cursor: pointer; }
     line-height: 1.2;
 }
 
+.color-photo__prompt {
+    font-size: 13px;
+    color: var(--light);
+    padding: 14px;
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
 .color-photo__name {
     display: flex;
     align-items: center;

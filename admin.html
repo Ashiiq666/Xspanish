@@ -177,13 +177,19 @@
             </div>
 
             <!-- Style -->
-            <label class="field field--half">
+            <div class="field field--half">
                 <span class="field__label">Style</span>
-                <input type="text" class="input" id="fStyle" list="styleOptions"
-                       placeholder="e.g. Printed" autocomplete="off" maxlength="40">
-                <datalist id="styleOptions"></datalist>
-                <span class="hint">Groups this product on the category page &mdash; pick a suggestion or type your own. Left blank, it still appears under the category.</span>
-            </label>
+                <select class="input" id="fStyle"></select>
+
+                <!-- Revealed when "Add a new style" is chosen -->
+                <div class="style-custom" id="styleCustomRow" hidden>
+                    <input type="text" class="input input--sm" id="fStyleCustom"
+                           placeholder="New style name" autocomplete="off" maxlength="40">
+                    <button type="button" class="btn btn--ghost btn--sm" id="styleCancelBtn">Cancel</button>
+                </div>
+
+                <span class="hint">Groups this product on the category page. Options change with the category &mdash; leave as <em>No style</em> and it still appears under the category itself.</span>
+            </div>
 
             <!-- Sizes -->
             <div class="field">

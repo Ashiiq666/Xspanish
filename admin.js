@@ -243,7 +243,8 @@
             if (e.key === 'Enter') { e.preventDefault(); addCustomColor(); }
         });
 
-        $('#fCategory').addEventListener('change', refreshStyleOptions);
+        $('#fCategory').addEventListener('change', () => refreshStyleOptions(''));
+        bindStyle();
 
         $('#productForm').addEventListener('submit', saveProduct);
         $('#deleteBtn').addEventListener('click', () => askDelete(editingId));
@@ -275,8 +276,7 @@
         $('#fIsNew').checked = p ? !!p.is_new : false;
         $('#fInStock').checked = p ? !!p.in_stock : true;
         $('#fOfferTag').value = p ? (p.offer_tag || '') : '';
-        $('#fStyle').value = p ? (p.style || '') : '';
-        refreshStyleOptions();
+        refreshStyleOptions(p ? (p.style || '') : '');
         $('#fSortOrder').value = p ? p.sort_order : 0;
 
         setChecked('#sizeChips', p ? p.sizes : ['S', 'M', 'L', 'XL']);
@@ -318,9 +318,60 @@
         return $$(`${scope} input[type="checkbox"]`).filter(cb => cb.checked).map(cb => cb.value);
     }
 
-    function refreshStyleOptions() {
-        const list = STYLE_SUGGESTIONS[$('#fCategory').value] || [];
-        $('#styleOptions').innerHTML = list.map(v => `<option value="${esc(v)}">`).join('');
+    /* Rebuild the style dropdown for the selected category. `keep` is the
+       value to stay on — a custom style already saved on the product is
+       added as its own option so switching category never silently drops it. */
+    function refreshStyleOptions(keep) {
+        const current = keep !== undefined ? keep : styleValue();
+        const suggested = STYLE_SUGGESTIONS[$('#fCategory').value] || [];
+
+        const options = [...suggested];
+        if (current && !options.includes(current)) options.push(current);
+
+        $('#fStyle').innerHTML =
+            '<option value="">No style</option>' +
+            options.map(v => `<option value="${esc(v)}"${v === current ? ' selected' : ''}>${esc(v)}</option>`).join('') +
+            '<option value="__custom">+ Add a new style…</option>';
+
+        hideStyleCustom();
+    }
+
+    /* The effective style: the custom box when it is open, else the select. */
+    function styleValue() {
+        if (!$('#styleCustomRow').hidden) return $('#fStyleCustom').value.trim();
+        const v = $('#fStyle').value;
+        return v === '__custom' ? '' : v;
+    }
+
+    function showStyleCustom() {
+        $('#styleCustomRow').hidden = false;
+        $('#fStyleCustom').value = '';
+        $('#fStyleCustom').focus();
+    }
+
+    function hideStyleCustom() {
+        $('#styleCustomRow').hidden = true;
+        $('#fStyleCustom').value = '';
+    }
+
+    function bindStyle() {
+        $('#fStyle').addEventListener('change', () => {
+            if ($('#fStyle').value === '__custom') showStyleCustom();
+            else hideStyleCustom();
+        });
+
+        // Committing a custom name turns it into a real, selected option
+        $('#fStyleCustom').addEventListener('blur', commitCustomStyle);
+        $('#fStyleCustom').addEventListener('keydown', e => {
+            if (e.key === 'Enter') { e.preventDefault(); commitCustomStyle(); }
+        });
+
+        $('#styleCancelBtn').addEventListener('click', () => refreshStyleOptions(''));
+    }
+
+    function commitCustomStyle() {
+        const name = $('#fStyleCustom').value.trim();
+        if (name) refreshStyleOptions(name);
     }
 
     /* ---------- colours ---------- */
@@ -362,8 +413,16 @@
     function renderColorPhotos() {
         const wrap = $('#colorPhotos');
         const list = $('#colorPhotoList');
-        if (!currentColors.length) { wrap.hidden = true; return; }
+
+        // Always visible, so the feature is discoverable on a new product
+        // where nothing is ticked yet — hiding it made it impossible to find.
         wrap.hidden = false;
+
+        if (!currentColors.length) {
+            list.innerHTML =
+                '<p class="color-photo__prompt">Tick a colour above, then add a photo for it here.</p>';
+            return;
+        }
 
         list.innerHTML = currentColors.map((c, i) => `
             <div class="color-photo">
@@ -519,7 +578,7 @@
             name: $('#fName').value.trim(),
             brand: $('#fBrand').value.trim() || null,
             category: $('#fCategory').value,
-            style: $('#fStyle').value.trim() || null,
+            style: styleValue() || null,
             price,
             old_price: oldPrice,
             sizes: getChecked('#sizeChips'),
