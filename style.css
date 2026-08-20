@@ -2078,12 +2078,52 @@ h4 {
         gap: 20px;
     }
 
+    /* Reference sits both tabs on one line at ~20px; 27px wraps here */
     .tabs {
         gap: 26px;
+        margin-bottom: 30px;
+    }
+
+    .tab {
+        font-size: 20px;
+    }
+
+    /* Shorter bar, taller hero, and a single uncluttered message */
+    :root {
+        --header-h: 67px;
     }
 
     .hero {
-        height: 420px;
+        height: 520px;
+    }
+
+    .hero__eyebrow,
+    .hero__text {
+        display: none;
+    }
+
+    .hero__title {
+        font-size: 28px;
+    }
+
+    /* One compact outline CTA rather than two full-width buttons */
+    .hero__cta .btn:nth-child(2) {
+        display: none;
+    }
+
+    .hero__cta .btn {
+        padding: 12px 28px;
+        font-size: 11px;
+    }
+
+    /* The hidden subtitle used to provide this spacing */
+    .hero__cta {
+        margin-top: 18px;
+    }
+
+    /* Reference header carries burger, logo, search and bag only */
+    .header__actions > [aria-label="Account"] {
+        display: none;
     }
 
     .hero__dots {
@@ -2095,10 +2135,15 @@ h4 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .announcement span + span::before {
-        display: none;
+    .announcement {
+        font-size: 11px;
+        padding: 8px 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
+    .announcement span + span::before,
     .announcement span + span {
         display: none;
     }
@@ -2111,7 +2156,16 @@ h4 {
 
 @media (max-width: 520px) {
     .header__logo img {
-        height: 42px;
+        height: 40px;
+    }
+
+    /* Reference: 20.1px with a 24px gap, both tabs on one line */
+    .tabs {
+        gap: 24px;
+    }
+
+    .tab {
+        font-size: 20px;
     }
 
     /* Full-width stack: feature cells 508px tall, the rest 248px */
@@ -2135,11 +2189,6 @@ h4 {
 
     .footer__grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero__cta {
-        flex-direction: column;
-        align-items: stretch;
     }
 
     .qty-row {
