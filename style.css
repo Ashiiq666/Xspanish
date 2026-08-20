@@ -632,6 +632,14 @@ h4 {
     }
 }
 
+/* The reference hero carries a single headline and one compact call to
+   action at every width — no eyebrow, no supporting paragraph, no second
+   button. Kept in the markup for search engines and screen readers. */
+.hero__eyebrow,
+.hero__text {
+    display: none;
+}
+
 .hero__eyebrow {
     font-size: 11px;
     letter-spacing: 0.22em;
@@ -661,6 +669,17 @@ h4 {
     gap: 14px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+/* Only the primary action is shown; the secondary link lives in the nav */
+.hero__cta .btn:nth-child(2) {
+    display: none;
+}
+
+.hero__cta .btn {
+    padding: 10px 28px;
+    font-size: 11px;
 }
 
 .hero__dots {
@@ -2107,40 +2126,10 @@ h4 {
         height: 520px;
     }
 
-    .hero__eyebrow,
-    .hero__text {
-        display: none;
-    }
-
     .hero__title {
         font-size: 28px;
     }
 
-    /* One compact outline CTA rather than two full-width buttons */
-    .hero__cta .btn:nth-child(2) {
-        display: none;
-    }
-
-    /* Reference CTA measures ~68x18pt with a ~9px label */
-    .hero__cta .btn {
-        padding: 3px 10px;
-        font-size: 9px;
-        position: relative;
-    }
-
-    /* Keep a 44pt tap target behind that small box — the visible size
-       matches the reference, the touchable area stays reachable. */
-    .hero__cta .btn::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 50%;
-        height: 44px;
-        transform: translateY(-50%);
-    }
-
-    /* The hidden subtitle used to provide this spacing */
     .hero__cta {
         margin-top: 18px;
     }
@@ -2181,6 +2170,25 @@ h4 {
 @media (max-width: 520px) {
     .header__logo img {
         height: 40px;
+    }
+
+    /* Phone-only: reference CTA measures ~68x18pt with a ~9px label */
+    .hero__cta .btn {
+        padding: 3px 10px;
+        font-size: 9px;
+        position: relative;
+    }
+
+    /* Keep a 44pt tap target behind that small box — the visible size
+       matches the reference, the touchable area stays reachable. */
+    .hero__cta .btn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 44px;
+        transform: translateY(-50%);
     }
 
     /* Reference: 20.1px with a 24px gap, both tabs on one line */
