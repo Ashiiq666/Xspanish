@@ -169,12 +169,14 @@ function initHeader() {
     const announcement = $('#announcement');
     if (!header) return;
 
-    const announcementH = announcement ? announcement.offsetHeight : 0;
-
     // Inner pages have no full-bleed hero behind the header, so it stays solid.
     const alwaysSolid = header.classList.contains('header--static');
 
     const onScroll = () => {
+        // Measured every time, not cached: the bar is taller while its text
+        // is still wrapping during load, and a stale value would pin the
+        // header far down the page for the rest of the session.
+        const announcementH = announcement ? announcement.offsetHeight : 0;
         const y = window.scrollY;
         header.classList.toggle('is-solid', alwaysSolid || y > 40);
         header.classList.toggle('is-below-announcement', y < announcementH);
