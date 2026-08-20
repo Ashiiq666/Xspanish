@@ -65,7 +65,7 @@
 
         if (!inCategory.length) {
             return renderEmpty(label, 'Nothing in this category yet.',
-                [{ label: 'Shop', url: 'index.html#categories' }]);
+                [{ label: 'Shop', url: '/#categories' }]);
         }
 
         return style
@@ -92,7 +92,7 @@
         const styles = CAT.stylesWithCounts(inCategory, category);
         const unfiled = inCategory.filter(p => !(p.style || '').trim()).length;
 
-        setHead(label, 'Choose a style.', [{ label: 'Shop', url: 'shop.html' }]);
+        setHead(label, 'Choose a style.', [{ label: 'Shop', url: '/shop' }]);
 
         const grid = $('#styleGrid');
         const cards = styles.map(s =>
@@ -107,7 +107,7 @@
 
         if (!cards.length) {
             return renderEmpty(label, 'No styles set for this category yet.',
-                [{ label: 'Shop', url: 'shop.html' }]);
+                [{ label: 'Shop', url: '/shop' }]);
         }
 
         grid.innerHTML = cards.join('');
@@ -122,7 +122,7 @@
 
         const heading = showAll ? 'All ' + label : style;
         setHead(heading, itemLabel(items.length), [
-            { label: 'Shop', url: 'shop.html' },
+            { label: 'Shop', url: '/shop' },
             { label, url: CAT.shopUrl(category) },
         ]);
 
@@ -158,7 +158,7 @@
         $('#pageTitle').textContent = title;
         $('#pageSub').textContent = sub || '';
 
-        const trail = [{ label: 'Home', url: 'index.html' }, ...crumbs];
+        const trail = [{ label: 'Home', url: '/' }, ...crumbs];
         $('#crumbs').innerHTML =
             trail.map(c => `<a href="${esc(c.url)}">${esc(c.label)}</a>`).join('<span>/</span>') +
             `<span>/</span><em>${esc(title)}</em>`;

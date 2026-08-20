@@ -42,7 +42,7 @@
 
     /* URL for a category's style listing, or a style's product listing. */
     const shopUrl = (category, style) =>
-        'shop.html?cat=' + encodeURIComponent(category) +
+        '/shop?cat=' + encodeURIComponent(category) +
         (style ? '&style=' + encodeURIComponent(style) : '');
 
     /* Group products by style, preserving the suggested order first and
