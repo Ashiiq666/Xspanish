@@ -75,17 +75,14 @@
         });
     }
 
+    /* Category covers stay the curated shot defined above — only the count
+       is derived. Style cards do use real product photography, since there
+       is no curated image for a style. */
     function categoriesWithCounts(products) {
-        return CATEGORIES.map(c => {
-            const items = products.filter(p => (p.cat || p.category) === c.key);
-            const withImage = items.find(p => p.image || p.image_url);
-            return {
-                ...c,
-                count: items.length,
-                // Prefer real stock photography over the placeholder
-                image: withImage ? (withImage.image || withImage.image_url) : c.image,
-            };
-        });
+        return CATEGORIES.map(c => ({
+            ...c,
+            count: products.filter(p => (p.cat || p.category) === c.key).length,
+        }));
     }
 
     global.XS_CATALOG = {
