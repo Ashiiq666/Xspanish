@@ -160,7 +160,8 @@
             if (cat && p.category !== cat) return false;
             if (!q) return true;
             return (p.name || '').toLowerCase().includes(q) ||
-                   (p.brand || '').toLowerCase().includes(q);
+                   (p.brand || '').toLowerCase().includes(q) ||
+                   (p.sku || '').toLowerCase().includes(q);
         });
     }
 
@@ -201,6 +202,7 @@
                 <td>
                     <div class="cell-name">${esc(p.name)}</div>
                     ${p.brand ? `<div class="cell-brand">${esc(p.brand)}</div>` : ''}
+                    ${p.sku ? `<div class="cell-sku">${esc(p.sku)}</div>` : ''}
                 </td>
                 <td>
                     ${esc(CATEGORY_LABELS[p.category] || p.category)}
@@ -230,6 +232,8 @@
     /* =====================================================
        Editor
        ===================================================== */
+    const SKU_HINT = 'Your own reference for this item. Shown on the product page and included in WhatsApp orders, so staff know exactly which piece was ordered.';
+
     function bindEditor() {
         $$('[data-close-editor]').forEach(el => el.addEventListener('click', closeEditor));
 
@@ -246,6 +250,7 @@
         $('#fCategory').addEventListener('change', () => refreshStyleOptions(''));
         bindStyle();
 
+        $('#fSku').addEventListener('input', checkSkuDuplicate);
         $('#productForm').addEventListener('submit', saveProduct);
         $('#deleteBtn').addEventListener('click', () => askDelete(editingId));
 
@@ -265,11 +270,14 @@
         $('#editorTitle').textContent = p ? 'Edit product' : 'Add product';
         $('#deleteBtn').hidden = !p;
         hide($('#formError'));
+        $('#skuHint').textContent = SKU_HINT;
+        $('#skuHint').classList.remove('hint--warn');
         $('#uploadStatus').textContent = '';
         $('#uploadStatus').className = 'upload-status';
 
         $('#fName').value = p ? p.name : '';
         $('#fBrand').value = p ? (p.brand || '') : '';
+        $('#fSku').value = p ? (p.sku || '') : '';
         $('#fCategory').value = p ? p.category : 'shirts';
         $('#fPrice').value = p ? p.price : '';
         $('#fOldPrice').value = p && p.old_price ? p.old_price : '';
@@ -352,6 +360,28 @@
     function hideStyleCustom() {
         $('#styleCustomRow').hidden = true;
         $('#fStyleCustom').value = '';
+    }
+
+    /* A duplicate code is usually a mistake, but occasionally deliberate,
+       so warn rather than block — the database has no unique constraint. */
+    function checkSkuDuplicate() {
+        const hint = $('#skuHint');
+        const code = $('#fSku').value.trim().toLowerCase();
+        hint.classList.remove('hint--warn');
+
+        if (!code) {
+            hint.textContent = SKU_HINT;
+            return;
+        }
+        const clash = products.find(p =>
+            p.id !== editingId && (p.sku || '').trim().toLowerCase() === code);
+
+        if (clash) {
+            hint.textContent = `Already used by "${clash.name}". You can still save if that is intended.`;
+            hint.classList.add('hint--warn');
+        } else {
+            hint.textContent = SKU_HINT;
+        }
     }
 
     function bindStyle() {
@@ -577,6 +607,7 @@
         const fields = {
             name: $('#fName').value.trim(),
             brand: $('#fBrand').value.trim() || null,
+            sku: $('#fSku').value.trim() || null,
             category: $('#fCategory').value,
             style: styleValue() || null,
             price,

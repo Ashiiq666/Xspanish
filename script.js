@@ -138,6 +138,7 @@ function fromRow(row) {
         id: row.id,
         name: row.name,
         brand: row.brand || '',
+        sku: row.sku || '',
         price: Number(row.price),
         oldPrice: row.old_price != null ? Number(row.old_price) : null,
         image: row.image_url || '',
@@ -547,6 +548,7 @@ function initQuickView() {
             id: currentProduct.id,
             name: currentProduct.name,
             brand: currentProduct.brand,
+            sku: currentProduct.sku || '',
             price: currentProduct.price,
             image: currentProduct.image,
             color: $('.swatch.is-active')?.dataset.color || 'Black',
@@ -569,6 +571,13 @@ function openQuickView(id) {
     $('#qvImage').src = p.image;
     $('#qvImage').alt = p.name;
     $('#qvBrand').textContent = p.brand;
+
+    // Product code, so a customer can quote it when they get in touch
+    const codeEl = $('#qvSku');
+    if (codeEl) {
+        codeEl.textContent = p.sku ? `Code ${p.sku}` : '';
+        codeEl.hidden = !p.sku;
+    }
     $('#qvName').textContent = p.name;
     $('#qvPrice').innerHTML = money(p.price) + (p.oldPrice ? ` <del>${money(p.oldPrice)}</del>` : '');
 
@@ -685,6 +694,7 @@ function updateCheckoutLink(total) {
 
     const lines = cart.map((l, i) =>
         `${i + 1}. ${l.name}${l.brand ? ` (${l.brand})` : ''}\n` +
+        (l.sku ? `   Code: ${l.sku}\n` : '') +
         `   ${l.color} · Size ${l.size} × ${l.qty} — ${money(l.price * l.qty)}`
     );
 

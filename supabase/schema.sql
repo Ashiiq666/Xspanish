@@ -11,6 +11,7 @@ create table if not exists public.products (
 
     name         text        not null,
     brand        text,
+    sku          text,                                    -- shop's own product code, shown to staff and on WhatsApp orders
     category     text        not null default 'shirts',   -- shirts | tshirts | jeans | trousers | ethnic | accessories
     style        text,                                    -- e.g. Formal, Printed, Linen — drives the style pages
 
@@ -38,6 +39,7 @@ create table if not exists public.products (
 create index if not exists products_sort_idx        on public.products (sort_order, created_at desc);
 create index if not exists products_category_idx    on public.products (category);
 create index if not exists products_category_style_idx on public.products (category, style);
+create index if not exists products_sku_idx on public.products (sku) where sku is not null;
 create index if not exists products_collections_idx on public.products using gin (collections);
 
 -- Keep updated_at honest

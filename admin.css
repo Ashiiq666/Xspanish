@@ -305,6 +305,16 @@ select.input { cursor: pointer; }
 .cell-name { font-size: 14px; }
 .cell-brand { font-size: 12px; color: var(--light); }
 
+.cell-sku {
+    font-size: 11px;
+    color: var(--light);
+    letter-spacing: .04em;
+    font-variant-numeric: tabular-nums;
+    margin-top: 2px;
+}
+
+.hint--warn { color: var(--danger); }
+
 .price-now { font-size: 14px; }
 .price-was { font-size: 12px; color: var(--light); text-decoration: line-through; margin-left: 6px; }
 
