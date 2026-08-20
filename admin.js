@@ -36,6 +36,9 @@
     let pendingImage = null; // {path, url} uploaded but not yet saved
     let currentColors = [];  // colours on the product being edited
     let deleteTarget = null;
+    let pendingColorPaths = [];  // colour photos uploaded but not yet saved
+    let colorPhotoTarget = null; // index in currentColors awaiting a file
+    let colorPhotoMemo = new Map(); // colour name -> photo, survives un-ticking a chip
 
     const money = n => '₹' + Number(n).toLocaleString('en-IN');
     const esc = s => String(s ?? '').replace(/[&<>"']/g,
@@ -235,6 +238,7 @@
         $('#removeImageBtn').addEventListener('click', clearImage);
 
         $('#addColorBtn').addEventListener('click', addCustomColor);
+        $('#colorImageInput').addEventListener('change', handleColorImagePick);
         $('#customColorName').addEventListener('keydown', e => {
             if (e.key === 'Enter') { e.preventDefault(); addCustomColor(); }
         });
@@ -279,7 +283,12 @@
         setChecked('#collectionChips', p ? p.collections : ['new']);
 
         currentColors = p && Array.isArray(p.colors) ? p.colors.map(c => ({ ...c })) : [];
+        colorPhotoMemo = new Map(
+            currentColors.filter(c => c.image).map(c => [c.name.toLowerCase(), { image: c.image, path: c.path }]));
+        pendingColorPaths = [];
+        colorPhotoTarget = null;
         renderColorChips();
+        renderColorPhotos();
 
         setPreview(p ? p.image_url : null);
 
@@ -289,11 +298,13 @@
     }
 
     function closeEditor() {
-        // An image uploaded but never saved would otherwise be orphaned.
+        // Images uploaded but never saved would otherwise be orphaned.
         if (pendingImage) {
             API.deleteImage(pendingImage.path);
             pendingImage = null;
         }
+        pendingColorPaths.forEach(path => API.deleteImage(path));
+        pendingColorPaths = [];
         hide($('#editorModal'));
         document.body.classList.remove('is-locked');
     }
@@ -331,10 +342,83 @@
     }
 
     function syncColors() {
-        currentColors = $$('#colorChips input:checked').map(cb => ({
-            name: cb.dataset.colorName,
-            hex: cb.dataset.colorHex,
+        // Carry any photo already attached to a colour across the rebuild,
+        // otherwise re-ticking a chip would silently drop its image.
+        const existing = new Map(currentColors.map(c => [c.name.toLowerCase(), c]));
+
+        currentColors = $$('#colorChips input:checked').map(cb => {
+            const key = cb.dataset.colorName.toLowerCase();
+            // Fall back to the memo so re-ticking a chip restores its photo
+            const prev = existing.get(key) || colorPhotoMemo.get(key) || {};
+            return {
+                name: cb.dataset.colorName,
+                hex: cb.dataset.colorHex,
+                ...(prev.image ? { image: prev.image, path: prev.path } : {}),
+            };
+        });
+        renderColorPhotos();
+    }
+
+    function renderColorPhotos() {
+        const wrap = $('#colorPhotos');
+        const list = $('#colorPhotoList');
+        if (!currentColors.length) { wrap.hidden = true; return; }
+        wrap.hidden = false;
+
+        list.innerHTML = currentColors.map((c, i) => `
+            <div class="color-photo">
+                <span class="color-photo__thumb">
+                    ${c.image ? `<img src="${esc(c.image)}" alt="">`
+                              : '<span class="color-photo__blank">No photo</span>'}
+                </span>
+                <span class="color-photo__name">
+                    <span class="swatch-dot" style="background:${esc(c.hex)}"></span>${esc(c.name)}
+                </span>
+                <button type="button" class="icon-btn" data-color-upload="${i}">
+                    ${c.image ? 'Replace' : 'Add photo'}
+                </button>
+                ${c.image ? `<button type="button" class="icon-btn icon-btn--danger" data-color-clear="${i}">Remove</button>` : ''}
+            </div>`).join('');
+
+        $$('[data-color-upload]', list).forEach(b => b.addEventListener('click', () => {
+            colorPhotoTarget = Number(b.dataset.colorUpload);
+            $('#colorImageInput').click();
         }));
+        $$('[data-color-clear]', list).forEach(b => b.addEventListener('click', () => {
+            const c = currentColors[Number(b.dataset.colorClear)];
+            if (c.path) API.deleteImage(c.path);
+            colorPhotoMemo.delete(c.name.toLowerCase());
+            delete c.image; delete c.path;
+            renderColorPhotos();
+        }));
+    }
+
+    async function handleColorImagePick(e) {
+        const file = e.target.files && e.target.files[0];
+        e.target.value = '';
+        if (!file || colorPhotoTarget === null) return;
+
+        const target = currentColors[colorPhotoTarget];
+        if (!target) return;
+
+        if (!file.type.startsWith('image/')) return toast('That file is not an image.', true);
+        if (file.size > 5 * 1024 * 1024) return toast('Image is larger than 5MB — please compress it first.', true);
+
+        $('#saveBtn').disabled = true;
+        try {
+            if (target.path) await API.deleteImage(target.path);   // replacing
+            const up = await API.uploadImage(file);
+            target.image = up.url;
+            target.path = up.path;
+            colorPhotoMemo.set(target.name.toLowerCase(), { image: up.url, path: up.path });
+            pendingColorPaths.push(up.path);
+            renderColorPhotos();
+        } catch (ex) {
+            toast(ex.message, true);
+        } finally {
+            $('#saveBtn').disabled = false;
+            colorPhotoTarget = null;
+        }
     }
 
     function addCustomColor() {
@@ -351,6 +435,7 @@
         currentColors.push({ name, hex });
         $('#customColorName').value = '';
         renderColorChips();
+        renderColorPhotos();
     }
 
     /* ---------- image ---------- */
@@ -468,6 +553,12 @@
 
                 await API.updateProduct(editingId, fields);
                 if (replacing) await API.deleteImage(oldPath);
+
+                // Colours removed from the product leave their photos behind
+                const keptPaths = new Set(fields.colors.filter(c => c.path).map(c => c.path));
+                await Promise.all((existing.colors || [])
+                    .filter(c => c.path && !keptPaths.has(c.path))
+                    .map(c => API.deleteImage(c.path)));
                 toast('Product updated.');
             } else {
                 await API.createProduct(fields);
@@ -475,6 +566,7 @@
             }
 
             pendingImage = null;      // now owned by the saved row
+            pendingColorPaths = [];
             clearImage.cleared = false;
             hide($('#editorModal'));
             document.body.classList.remove('is-locked');
@@ -526,6 +618,10 @@
         try {
             await API.deleteProduct(deleteTarget.id);
             if (deleteTarget.image_path) await API.deleteImage(deleteTarget.image_path);
+            // Colour photos live in the same bucket and would otherwise linger
+            await Promise.all((deleteTarget.colors || [])
+                .filter(c => c.path)
+                .map(c => API.deleteImage(c.path)));
             toast('Product deleted.');
 
             closeConfirm();

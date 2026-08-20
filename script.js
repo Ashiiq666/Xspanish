@@ -511,6 +511,18 @@ function initQuickView() {
         if (!sw) return;
         $$('.swatch').forEach(s => s.classList.remove('is-active'));
         sw.classList.add('is-active');
+
+        // Show that colour's photo, falling back to the product's main image
+        const img = $('#qvImage');
+        const next = sw.dataset.image || (currentProduct && currentProduct.image);
+        if (next && img.src !== next) {
+            img.style.opacity = '0';
+            const swap = () => {
+                img.src = next;
+                img.style.opacity = '1';
+            };
+            setTimeout(swap, 120);
+        }
     });
 
     $('#qvSizes')?.addEventListener('click', e => {
@@ -560,13 +572,18 @@ function openQuickView(id) {
     $('#qvName').textContent = p.name;
     $('#qvPrice').innerHTML = money(p.price) + (p.oldPrice ? ` <del>${money(p.oldPrice)}</del>` : '');
 
-    /* Options come from the product itself so the dashboard controls them. */
+    /* Options come from the product itself so the dashboard controls them.
+       A colour may carry its own photo; picking it swaps the main image. */
     const colors = (p.colors && p.colors.length) ? p.colors : DEFAULT_COLORS;
     $('#qvSwatches').innerHTML = colors.map((c, i) => `
         <button type="button" class="swatch${i === 0 ? ' is-active' : ''}"
                 data-color="${escapeHtml(c.name)}"
+                ${c.image ? `data-image="${escapeHtml(c.image)}"` : ''}
                 style="background:${escapeHtml(c.hex)}"
                 aria-label="${escapeHtml(c.name)}"></button>`).join('');
+
+    // Lead with the first colour's photo when it has one
+    if (colors[0] && colors[0].image) $('#qvImage').src = colors[0].image;
 
     const sizes = (p.sizes && p.sizes.length) ? p.sizes : SIZES;
     $('#qvSizes').innerHTML = sizes.map((s, i) =>

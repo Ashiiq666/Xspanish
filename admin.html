@@ -206,6 +206,13 @@
                     <input type="color" class="input input--color" id="customColorHex" value="#1c1c1c" aria-label="Colour swatch">
                     <button type="button" class="btn btn--ghost btn--sm" id="addColorBtn">Add colour</button>
                 </div>
+
+                <!-- One photo per colour; shown when a shopper picks it -->
+                <div class="color-photos" id="colorPhotos" hidden>
+                    <p class="hint">Give each colour its own photo — the quick view swaps to it when a shopper picks that colour. Optional; colours without one show the main product image.</p>
+                    <div class="color-photo-list" id="colorPhotoList"></div>
+                    <input type="file" id="colorImageInput" accept="image/*" hidden>
+                </div>
             </div>
 
             <!-- Tags -->
